@@ -17,13 +17,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Pure Monochrome Black Palette, Borderless Matte UI
+# Custom High-End CSS: Satoshi Font, Luxury Monochrome Buttons & Inputs, Borderless Matte UI
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
 
-    /* Global Typography - Target text specifically to avoid overriding Streamlit Icon fonts */
-    html, body, .stApp, p, span, div, h1, h2, h3, h4, h5, h6, input, select, textarea, .stMarkdown {
+    /* Global Typography */
+    html, body, .stApp, p, span, div, h1, h2, h3, h4, h5, h6, input, select, textarea, button, .stMarkdown {
         font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
@@ -46,7 +46,7 @@ st.markdown("""
         border-right: none !important;
     }
 
-    /* Ensure Sidebar Collapse / Expand Arrow Button is clearly visible & styled */
+    /* Ensure Sidebar Collapse / Expand Arrow Button */
     [data-testid="stSidebarCollapseButton"],
     [data-testid="baseButton-headerNoPadding"],
     [data-testid="stSidebarHeader"] button,
@@ -78,7 +78,86 @@ st.markdown("""
         visibility: visible !important;
     }
 
-    /* Top Executive Navigation Header - Pure Monochrome */
+    /* =========================================
+       LUXURY MONOCHROME BUTTONS & CONTROLS
+       ========================================= */
+    
+    /* Download Buttons & Action Buttons */
+    div.stDownloadButton > button,
+    div.stButton > button,
+    button[data-testid="baseButton-secondary"],
+    button[data-testid="baseButton-primary"] {
+        background-color: #141419 !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 12px !important;
+        padding: 0.6rem 1.2rem !important;
+        font-weight: 600 !important;
+        font-size: 0.84rem !important;
+        letter-spacing: -0.01em !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    div.stDownloadButton > button:hover,
+    div.stButton > button:hover,
+    button[data-testid="baseButton-secondary"]:hover,
+    button[data-testid="baseButton-primary"]:hover {
+        background-color: #22222b !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        color: #ffffff !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    div.stDownloadButton > button:active,
+    div.stButton > button:active {
+        transform: scale(0.98) !important;
+    }
+
+    /* Form Inputs, Selectboxes & Text Inputs */
+    div[data-baseweb="input"],
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="base-input"] {
+        background-color: #101014 !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 10px !important;
+        color: #ffffff !important;
+    }
+    div[data-baseweb="input"]:hover,
+    div[data-baseweb="select"] > div:hover {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    div[data-baseweb="input"]:focus-within,
+    div[data-baseweb="select"] > div:focus-within {
+        border-color: rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Multiselect Tag Badges in Sidebar */
+    span[data-baseweb="tag"] {
+        background-color: #181820 !important;
+        border: none !important;
+        border-radius: 6px !important;
+        color: #e4e4e7 !important;
+        font-weight: 500 !important;
+        font-size: 0.76rem !important;
+    }
+    span[data-baseweb="tag"] span[title] {
+        color: #e4e4e7 !important;
+    }
+    span[data-baseweb="tag"] [role="presentation"] {
+        color: #a1a1aa !important;
+    }
+    span[data-baseweb="tag"] [role="presentation"]:hover {
+        color: #ffffff !important;
+    }
+
+    /* Top Executive Navigation Header */
     .bento-nav-card {
         display: flex;
         justify-content: space-between;
