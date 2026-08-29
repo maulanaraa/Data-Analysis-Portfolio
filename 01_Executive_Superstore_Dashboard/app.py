@@ -11,13 +11,13 @@ import os
 # PAGE CONFIGURATION & MONOCHROME BLACK THEME
 # ==========================================
 st.set_page_config(
-    page_title="Superstore Executive Hub — Monochrome Black",
+    page_title="Superstore Executive Hub — Commercial Intelligence",
     page_icon="■",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Luxury Monochrome Buttons & Inputs, Borderless Matte UI
+# Custom High-End CSS: Satoshi Font, Luxury Monochrome Controls & Fixed Multiselect Tags
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -79,9 +79,55 @@ st.markdown("""
     }
 
     /* =========================================
-       LUXURY MONOCHROME BUTTONS & CONTROLS
+       FIXED MULTISELECT TAG CHIPS & BUTTONS
        ========================================= */
     
+    /* Multiselect Tag Chips (Fixed text visibility bug) */
+    span[data-baseweb="tag"],
+    div[data-baseweb="tag"],
+    [data-baseweb="tag"] {
+        background-color: #27272e !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 6px !important;
+        padding: 2px 6px !important;
+        color: #ffffff !important;
+    }
+    span[data-baseweb="tag"] span,
+    div[data-baseweb="tag"] span,
+    span[data-baseweb="tag"] div,
+    div[data-baseweb="tag"] div,
+    [data-baseweb="tag"] * {
+        color: #ffffff !important;
+        font-weight: 500 !important;
+        font-size: 0.78rem !important;
+        background-color: transparent !important;
+    }
+    span[data-baseweb="tag"] svg,
+    div[data-baseweb="tag"] svg,
+    [data-baseweb="tag"] svg {
+        fill: #a1a1aa !important;
+        stroke: #a1a1aa !important;
+    }
+    span[data-baseweb="tag"] svg:hover,
+    div[data-baseweb="tag"] svg:hover {
+        fill: #ffffff !important;
+        stroke: #ffffff !important;
+    }
+
+    /* Multiselect Dropdown Container */
+    div[data-baseweb="select"] > div {
+        background-color: #0e0e12 !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 10px !important;
+        color: #ffffff !important;
+    }
+    div[data-baseweb="select"] > div:hover {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    div[data-baseweb="select"] > div:focus-within {
+        border-color: rgba(255, 255, 255, 0.4) !important;
+    }
+
     /* Download Buttons & Action Buttons */
     div.stDownloadButton > button,
     div.stButton > button,
@@ -119,41 +165,12 @@ st.markdown("""
         transform: scale(0.98) !important;
     }
 
-    /* Form Inputs, Selectboxes & Text Inputs */
+    /* Form Inputs & Text Inputs */
     div[data-baseweb="input"],
-    div[data-baseweb="select"] > div,
     div[data-baseweb="base-input"] {
-        background-color: #101014 !important;
+        background-color: #0e0e12 !important;
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
         border-radius: 10px !important;
-        color: #ffffff !important;
-    }
-    div[data-baseweb="input"]:hover,
-    div[data-baseweb="select"] > div:hover {
-        border-color: rgba(255, 255, 255, 0.2) !important;
-    }
-    div[data-baseweb="input"]:focus-within,
-    div[data-baseweb="select"] > div:focus-within {
-        border-color: rgba(255, 255, 255, 0.4) !important;
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
-    }
-
-    /* Multiselect Tag Badges in Sidebar */
-    span[data-baseweb="tag"] {
-        background-color: #181820 !important;
-        border: none !important;
-        border-radius: 6px !important;
-        color: #e4e4e7 !important;
-        font-weight: 500 !important;
-        font-size: 0.76rem !important;
-    }
-    span[data-baseweb="tag"] span[title] {
-        color: #e4e4e7 !important;
-    }
-    span[data-baseweb="tag"] [role="presentation"] {
-        color: #a1a1aa !important;
-    }
-    span[data-baseweb="tag"] [role="presentation"]:hover {
         color: #ffffff !important;
     }
 
