@@ -8,7 +8,7 @@ import io
 import os
 
 # ==========================================
-# PAGE CONFIGURATION & GLASSMORPHISM THEME
+# PAGE CONFIGURATION & PURE BLACK THEME
 # ==========================================
 st.set_page_config(
     page_title="Superstore Executive Hub — Commercial & Strategic Intelligence",
@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Frosted Glassmorphism, Ambient Mesh Lighting
+# Custom High-End CSS: Satoshi Font, Pure Matte Black (Borderless), Vibrant Chart Accents
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -27,14 +27,10 @@ st.markdown("""
         font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
-    /* Background with Radiant Ambient Refraction */
+    /* Pure Pitch Black Canvas */
     .stApp {
-        background-color: #06070a !important;
-        background-image: 
-            radial-gradient(circle at 12% 15%, rgba(96, 165, 250, 0.14) 0%, transparent 45%),
-            radial-gradient(circle at 88% 25%, rgba(52, 211, 153, 0.12) 0%, transparent 40%),
-            radial-gradient(circle at 50% 85%, rgba(129, 140, 248, 0.08) 0%, transparent 50%) !important;
-        background-attachment: fixed !important;
+        background-color: #000000 !important;
+        background-image: none !important;
         color: #ffffff;
     }
 
@@ -46,12 +42,10 @@ st.markdown("""
         max-width: 98% !important;
     }
 
-    /* Frosted Glass Sidebar */
+    /* Standard Docked Matte Sidebar */
     section[data-testid="stSidebar"] {
-        background: rgba(10, 12, 18, 0.75) !important;
-        backdrop-filter: blur(20px) saturate(180%) !important;
-        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+        background-color: #08080a !important;
+        border-right: none !important;
     }
 
     /* Sidebar Collapse / Expand Button */
@@ -87,24 +81,20 @@ st.markdown("""
     }
 
     /* =========================================
-       GLASSMORPHISM CONTAINERS & CARDS
+       BORDERLESS MATTE CARDS & CONTAINERS
        ========================================= */
 
-    /* Top Navigation Frosted Glass Header */
+    /* Top Navigation Header */
     .bento-nav-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1.4rem 1.8rem;
-        background: rgba(18, 22, 32, 0.55);
-        backdrop-filter: blur(24px) saturate(190%);
-        -webkit-backdrop-filter: blur(24px) saturate(190%);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 18px;
+        background: #0e0e12;
+        border: none !important;
+        border-radius: 16px;
         margin-bottom: 1.4rem;
-        box-shadow: 
-            inset 0 1px 1px rgba(255, 255, 255, 0.12),
-            0 12px 36px rgba(0, 0, 0, 0.45);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
     }
     .brand-title {
         font-size: 1.55rem;
@@ -124,13 +114,11 @@ st.markdown("""
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(96, 165, 250, 0.12);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(96, 165, 250, 0.25);
+        background: #18181f;
+        border: none !important;
         color: #93c5fd;
         padding: 6px 14px;
-        border-radius: 10px;
+        border-radius: 8px;
         font-size: 0.76rem;
         font-weight: 600;
     }
@@ -139,10 +127,10 @@ st.markdown("""
         height: 6px;
         background-color: #34d399;
         border-radius: 50%;
-        box-shadow: 0 0 8px #34d399;
+        box-shadow: 0 0 6px #34d399;
     }
 
-    /* Frosted Glass KPI Cards */
+    /* Bento Grid KPI Cards (Borderless) */
     .bento-kpi-container {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -150,24 +138,16 @@ st.markdown("""
         margin-bottom: 1.4rem;
     }
     .bento-card {
-        background: rgba(18, 22, 32, 0.5);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 18px;
+        background: #0e0e12;
+        border: none !important;
+        border-radius: 16px;
         padding: 1.25rem 1.4rem;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 
-            inset 0 1px 0 rgba(255, 255, 255, 0.1),
-            0 8px 24px rgba(0, 0, 0, 0.35);
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
     .bento-card:hover {
-        transform: translateY(-3px);
-        background: rgba(26, 32, 48, 0.65);
-        border-color: rgba(96, 165, 250, 0.3);
-        box-shadow: 
-            inset 0 1px 0 rgba(255, 255, 255, 0.2),
-            0 14px 32px rgba(0, 0, 0, 0.55);
+        transform: translateY(-2px);
+        background: #14141a;
     }
 
     .bento-card-top {
@@ -179,7 +159,7 @@ st.markdown("""
     .bento-label {
         font-size: 0.74rem;
         font-weight: 700;
-        color: #94a3b8;
+        color: #71717a;
         text-transform: uppercase;
         letter-spacing: 0.06em;
     }
@@ -205,41 +185,34 @@ st.markdown("""
     }
     .pill-soft-green {
         background: rgba(52, 211, 153, 0.15);
-        border: 1px solid rgba(52, 211, 153, 0.3);
         color: #34d399;
         padding: 3px 8px;
         border-radius: 6px;
     }
     .pill-soft-red {
         background: rgba(248, 113, 113, 0.15);
-        border: 1px solid rgba(248, 113, 113, 0.3);
         color: #f87171;
         padding: 3px 8px;
         border-radius: 6px;
     }
     .pill-soft-blue {
         background: rgba(96, 165, 250, 0.15);
-        border: 1px solid rgba(96, 165, 250, 0.3);
         color: #60a5fa;
         padding: 3px 8px;
         border-radius: 6px;
     }
 
-    /* Frosted Glass Insight Banner */
+    /* Minimalist Insight Banner */
     .bento-insight-banner {
-        background: rgba(18, 22, 32, 0.5);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #0e0e12;
+        border: none !important;
         border-radius: 14px;
         padding: 0.9rem 1.3rem;
         margin-bottom: 1.4rem;
         display: flex;
         align-items: center;
         gap: 12px;
-        box-shadow: 
-            inset 0 1px 0 rgba(255, 255, 255, 0.1),
-            0 8px 24px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
     .insight-indicator {
         width: 3px;
@@ -247,45 +220,39 @@ st.markdown("""
         background: #60a5fa;
         border-radius: 2px;
         flex-shrink: 0;
-        box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
     }
 
-    /* Frosted Glass Tabs */
+    /* Tab Controls (Borderless) */
     .stTabs [data-baseweb="tab-list"] {
         gap: 6px;
-        background: rgba(15, 18, 26, 0.55);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: #09090c;
         padding: 4px;
-        border-radius: 14px;
+        border-radius: 12px;
+        border: none !important;
     }
     .stTabs [data-baseweb="tab"] {
         height: 38px;
-        border-radius: 9px;
-        color: #94a3b8;
+        border-radius: 8px;
+        color: #71717a;
         font-weight: 600;
         font-size: 0.84rem;
         padding: 0 16px;
         border: none !important;
         background: transparent;
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
     }
     .stTabs [aria-selected="true"] {
-        background: rgba(96, 165, 250, 0.15) !important;
-        border: 1px solid rgba(96, 165, 250, 0.3) !important;
+        background: #181820 !important;
+        border: none !important;
         color: #ffffff !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
     }
 
     /* Multiselect Tag Chips */
     span[data-baseweb="tag"],
     div[data-baseweb="tag"],
     [data-baseweb="tag"] {
-        background-color: rgba(40, 48, 64, 0.85) !important;
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        background-color: #27272e !important;
+        border: none !important;
         border-radius: 6px !important;
         padding: 2px 6px !important;
         color: #ffffff !important;
@@ -300,29 +267,25 @@ st.markdown("""
     }
     span[data-baseweb="tag"] svg,
     div[data-baseweb="tag"] svg {
-        fill: #94a3b8 !important;
-        stroke: #94a3b8 !important;
+        fill: #a1a1aa !important;
+        stroke: #a1a1aa !important;
     }
 
-    /* Action & Download Buttons */
+    /* Action & Download Buttons (Borderless Matte) */
     div.stDownloadButton > button,
     div.stButton > button,
     button[data-testid="baseButton-secondary"],
     button[data-testid="baseButton-primary"] {
-        background: rgba(26, 32, 48, 0.65) !important;
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
+        background-color: #141419 !important;
         color: #ffffff !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border: none !important;
         border-radius: 12px !important;
         padding: 0.6rem 1.2rem !important;
         font-weight: 600 !important;
         font-size: 0.84rem !important;
         letter-spacing: -0.01em !important;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 
-            inset 0 1px 0 rgba(255, 255, 255, 0.1),
-            0 6px 18px rgba(0, 0, 0, 0.35) !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -332,23 +295,20 @@ st.markdown("""
     div.stButton > button:hover,
     button[data-testid="baseButton-secondary"]:hover,
     button[data-testid="baseButton-primary"]:hover {
-        background: rgba(40, 48, 72, 0.85) !important;
-        border-color: rgba(96, 165, 250, 0.4) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 
-            inset 0 1px 0 rgba(255, 255, 255, 0.2),
-            0 10px 24px rgba(0, 0, 0, 0.55) !important;
+        background-color: #22222b !important;
+        color: #ffffff !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
     }
 
     /* Analyst Profile Card (Sidebar) */
     .profile-card {
-        background: rgba(18, 22, 32, 0.65);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: 16px;
+        background: #111116;
+        border: none !important;
+        border-radius: 14px;
         padding: 1.2rem;
         margin-top: 1.5rem;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 8px 24px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
     .profile-name {
         font-weight: 800;
@@ -366,24 +326,22 @@ st.markdown("""
     }
     .profile-tag {
         display: inline-block;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #1c1c24;
+        border: none !important;
         border-radius: 6px;
-        padding: 2px 7px;
+        padding: 3px 8px;
         font-size: 0.68rem;
         color: #cbd5e1;
         margin-right: 4px;
         margin-bottom: 4px;
     }
 
-    /* Frosted Input Fields */
+    /* Input Fields */
     div[data-baseweb="input"],
     div[data-baseweb="select"] > div,
     div[data-baseweb="base-input"] {
-        background-color: rgba(18, 22, 32, 0.55) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.09) !important;
+        background-color: #0e0e12 !important;
+        border: none !important;
         border-radius: 10px !important;
         color: #ffffff !important;
     }
@@ -394,17 +352,17 @@ st.markdown("""
         height: 6px;
     }
     ::-webkit-scrollbar-track {
-        background: #06070a;
+        background: #000000;
     }
     ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.15);
+        background: #27272a;
         border-radius: 4px;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # ==========================================
-# PLOTLY COLOR THEME ENGINE
+# PLOTLY COLOR THEME ENGINE (VIBRANT & SOFT)
 # ==========================================
 def apply_bento_chart_theme(fig, height=360):
     fig.update_layout(
@@ -413,25 +371,25 @@ def apply_bento_chart_theme(fig, height=360):
         margin=dict(l=15, r=15, t=35, b=15),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Satoshi, sans-serif", color="#94a3b8", size=11),
+        font=dict(family="Satoshi, sans-serif", color="#71717a", size=11),
         hoverlabel=dict(
-            bgcolor="rgba(18, 22, 32, 0.95)",
+            bgcolor="#141419",
             font_size=12,
             font_family="Satoshi",
-            bordercolor="rgba(255,255,255,0.15)"
+            bordercolor="rgba(255,255,255,0.0)"
         ),
         xaxis=dict(
             showgrid=False,
             zeroline=False,
-            color="#475569",
-            tickfont=dict(color="#94a3b8", size=10)
+            color="#52525b",
+            tickfont=dict(color="#71717a", size=10)
         ),
         yaxis=dict(
             showgrid=True,
-            gridcolor="rgba(255, 255, 255, 0.04)",
+            gridcolor="rgba(255, 255, 255, 0.03)",
             zeroline=False,
-            color="#475569",
-            tickfont=dict(color="#94a3b8", size=10)
+            color="#52525b",
+            tickfont=dict(color="#71717a", size=10)
         ),
         legend=dict(
             orientation="h",
@@ -439,7 +397,7 @@ def apply_bento_chart_theme(fig, height=360):
             y=1.02,
             xanchor="right",
             x=1,
-            font=dict(color="#cbd5e1", size=10),
+            font=dict(color="#a1a1aa", size=10),
             bgcolor="rgba(0,0,0,0)"
         )
     )
@@ -493,7 +451,7 @@ def load_data():
 df_raw = load_data()
 
 # ==========================================
-# SIDEBAR (FILTERS & ANALYST PROFILE CARD)
+# SIDEBAR (FILTERS & PROFILE)
 # ==========================================
 with st.sidebar:
     st.markdown("""
@@ -506,7 +464,7 @@ with st.sidebar:
     min_date = df_raw['order_date'].min().date()
     max_date = df_raw['order_date'].max().date()
     
-    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#cbd5e1;'>Date Range</span>", unsafe_allow_html=True)
+    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#a1a1aa;'>Date Range</span>", unsafe_allow_html=True)
     date_selection = st.date_input(
         "Date Range",
         value=(min_date, max_date),
@@ -522,7 +480,7 @@ with st.sidebar:
         
     st.markdown("<br>", unsafe_allow_html=True)
     
-    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#cbd5e1;'>Market Hierarchy</span>", unsafe_allow_html=True)
+    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#a1a1aa;'>Market Hierarchy</span>", unsafe_allow_html=True)
     all_regions = sorted(df_raw['region'].dropna().unique().tolist())
     selected_regions = st.multiselect(
         "Regions",
@@ -554,9 +512,7 @@ with st.sidebar:
         default=available_subcats
     )
 
-    # ---------------------------------------------
-    # HR / MANAGER RECRUITMENT PROFILE CARD
-    # ---------------------------------------------
+    # Analyst Profile Card
     st.markdown("""
     <div class="profile-card">
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
@@ -576,13 +532,13 @@ with st.sidebar:
             <span class="profile-tag">Prescriptive Analytics</span>
         </div>
         <div style="font-size:0.75rem; color:#94a3b8; line-height:1.4; margin-bottom:10px;">
-            Specialized in translating multi-dimensional transactional datasets into executive ROI and strategic growth decisions.
+            Specialized in translating transactional data into strategic growth decisions and margin protection.
         </div>
         <div style="display:flex; flex-direction:column; gap:6px;">
-            <a href="https://github.com/maulanaraa/Data-Analysis-Portfolio" target="_blank" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#ffffff; padding:7px 12px; border-radius:8px; font-size:0.75rem; font-weight:600;">
+            <a href="https://github.com/maulanaraa/Data-Analysis-Portfolio" target="_blank" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; background:#1c1c24; color:#ffffff; padding:7px 12px; border-radius:8px; font-size:0.75rem; font-weight:600;">
                 GitHub Repository
             </a>
-            <a href="mailto:contact@example.com" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; background:rgba(96, 165, 250, 0.15); border:1px solid rgba(96, 165, 250, 0.3); color:#60a5fa; padding:7px 12px; border-radius:8px; font-size:0.75rem; font-weight:600;">
+            <a href="mailto:contact@example.com" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; background:rgba(96, 165, 250, 0.18); color:#60a5fa; padding:7px 12px; border-radius:8px; font-size:0.75rem; font-weight:600;">
                 Contact Analyst
             </a>
         </div>
@@ -606,7 +562,7 @@ if selected_subcats:
     filtered_df = filtered_df[filtered_df['sub_category'].isin(selected_subcats)]
 
 # ==========================================
-# TOP NAVIGATION HEADER (FROSTED GLASS)
+# TOP NAVIGATION HEADER
 # ==========================================
 st.markdown(f"""
 <div class="bento-nav-card">
@@ -626,22 +582,22 @@ st.markdown(f"""
 with st.expander("Analytical Framework, Business Objectives & STAR Methodology", expanded=False):
     st.markdown("""
     <div style="font-size:0.84rem; color:#cbd5e1; line-height:1.6;">
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:10px;">
-            <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:6px;">
+            <div style="background:#0e0e12; padding:12px; border-radius:10px;">
                 <b style="color:#60a5fa;">1. Business Problem & Situation</b><br>
                 A retail conglomerate with $2.3M+ in transactional volume faced margin erosion in select product categories and rising customer churn in key enterprise segments despite strong top-line revenue growth.
             </div>
-            <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+            <div style="background:#0e0e12; padding:12px; border-radius:10px;">
                 <b style="color:#34d399;">2. Task & Strategic Objective</b><br>
                 Engineer an executive decision system to pinpoint leakage points across price-discount sensitivity, state-level freight subsidies, and customer retention cohorts to protect net operating margin.
             </div>
-            <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+            <div style="background:#0e0e12; padding:12px; border-radius:10px;">
                 <b style="color:#a78bfa;">3. Analytical Actions & Methodologies</b><br>
                 • <b>RFM Segmentation:</b> Multi-dimensional clustering to isolate active vs churn-risk accounts.<br>
                 • <b>Geospatial Contribution:</b> Choropleth state profit density & margin matrices.<br>
                 • <b>Prescriptive Simulator:</b> Interactive What-If model for discount optimization.
             </div>
-            <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+            <div style="background:#0e0e12; padding:12px; border-radius:10px;">
                 <b style="color:#fbbf24;">4. Quantifiable Business Impact</b><br>
                 Identified <b>+$38,400</b> in immediate profit recovery by eliminating toxic discounts (>20%) and protected <b>$120K+</b> in at-risk enterprise client revenue through targeted retention playbooks.
             </div>
@@ -654,7 +610,7 @@ if filtered_df.empty:
     st.stop()
 
 # ==========================================
-# BENTO KPI CARDS ROW (FROSTED GLASS)
+# BENTO KPI CARDS ROW (BORDERLESS BLACK)
 # ==========================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -695,7 +651,7 @@ st.markdown(f"""
         <div class="bento-card-top">
             <span class="bento-label">Total Orders</span>
             <span class="svg-icon">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             </span>
         </div>
         <div class="bento-value">{total_orders:,}</div>
@@ -731,7 +687,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# FROSTED INSIGHT BANNER
+# MINIMALIST INSIGHT BANNER
 # ==========================================
 best_cat = filtered_df.groupby('category')['sales'].sum().idxmax()
 best_cat_sales = filtered_df.groupby('category')['sales'].sum().max()
@@ -741,7 +697,7 @@ worst_subcat_profit = filtered_df.groupby('sub_category')['profit'].sum().min()
 st.markdown(f"""
 <div class="bento-insight-banner">
     <div class="insight-indicator"></div>
-    <div style="font-size: 0.84rem; color: #cbd5e1; line-height: 1.5;">
+    <div style="font-size: 0.84rem; color: #a1a1aa; line-height: 1.5;">
         <b style="color:#ffffff;">Executive Note:</b> Category <b style="color:#60a5fa;">{best_cat}</b> generated the highest gross volume (<b style="color:#ffffff;">${best_cat_sales:,.0f}</b>). 
         {"Margin deficit detected in sub-category <b style='color:#f87171;'>" + worst_subcat + "</b> with net loss of <b style='color:#f87171;'>$" + f"{worst_subcat_profit:,.0f}</b>." if worst_subcat_profit < 0 else "All sub-categories maintain positive net contribution."}
     </div>
@@ -781,7 +737,7 @@ with tab_overview:
             mode="lines+markers",
             line=dict(color="#60a5fa", width=2.8, shape="spline"),
             fill='tozeroy',
-            fillcolor='rgba(96, 165, 250, 0.14)'
+            fillcolor='rgba(96, 165, 250, 0.12)'
         ))
         fig_trend.add_trace(go.Scatter(
             x=monthly_df['year_month'],
@@ -907,13 +863,13 @@ with tab_geo:
             locationmode="USA-states",
             color='sales',
             scope="usa",
-            color_continuous_scale=[[0, '#0e1422'], [0.4, '#2563eb'], [1, '#60a5fa']],
+            color_continuous_scale=[[0, '#0a0a0e'], [0.4, '#1d4ed8'], [1, '#60a5fa']],
             hover_name='state',
             hover_data={'sales': ':$,.0f', 'profit': ':$,.0f', 'profit_margin': ':.1f%'},
             labels={'sales': 'Revenue ($)', 'profit': 'Profit ($)', 'profit_margin': 'Margin'}
         )
         fig_map.update_layout(
-            geo=dict(bgcolor='rgba(0,0,0,0)', lakecolor='rgba(14, 20, 34, 0.6)'),
+            geo=dict(bgcolor='rgba(0,0,0,0)', lakecolor='rgba(14, 14, 18, 0.8)'),
             margin=dict(l=0, r=0, t=10, b=10)
         )
         apply_bento_chart_theme(fig_map, height=380)
@@ -925,14 +881,14 @@ with tab_geo:
         for _, r in top_states.iterrows():
             margin_color = "#34d399" if r['profit_margin'] >= 10 else ("#f87171" if r['profit_margin'] < 0 else "#fbbf24")
             st.markdown(f"""
-            <div style="background: rgba(18, 22, 32, 0.5); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 12px 16px; margin-bottom: 8px;">
+            <div style="background: #0e0e12; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px;">
                 <div style="display:flex; justify-content:space-between; font-weight:700; color:#ffffff; font-size: 0.9rem;">
                     <span>{r['state']}</span>
                     <span style="color:#60a5fa;">${r['sales']:,.0f}</span>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#94a3b8; margin-top:4px;">
+                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#71717a; margin-top:4px;">
                     <span>Profit: ${r['profit']:,.0f}</span>
-                    <span style="color:{margin_color};">Margin: {r['profit_margin']:.1f}%</span>
+                    <span style="color:{margin_color}; font-weight:600;">Margin: {r['profit_margin']:.1f}%</span>
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -946,7 +902,7 @@ with tab_geo:
         fig_hm = px.imshow(
             pivot_r,
             text_auto="$,.0f",
-            color_continuous_scale=[[0, '#101524'], [0.5, '#1e3a8a'], [1, '#60a5fa']],
+            color_continuous_scale=[[0, '#0c0c10'], [0.5, '#1e3a8a'], [1, '#60a5fa']],
             aspect="auto",
             labels=dict(x="Segment", y="Region", color="Profit ($)")
         )
@@ -967,7 +923,7 @@ with tab_geo:
             y='sales',
             color='avg_days',
             text_auto='$,.0f',
-            color_continuous_scale=[[0, '#3b82f6'], [1, '#60a5fa']],
+            color_continuous_scale=[[0, '#2563eb'], [1, '#06b6d4']],
             labels={'sales': 'Sales ($)', 'ship_mode': 'Ship Mode', 'avg_days': 'Avg Days'}
         )
         apply_bento_chart_theme(fig_ship, height=330)
@@ -1040,17 +996,17 @@ with tab_customer:
         st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:0.5rem;'>Client Cohort Health</p>", unsafe_allow_html=True)
         st.markdown(f"""
         <div style="display:flex; flex-direction:column; gap:8px;">
-            <div style="background: rgba(18, 22, 32, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(52, 211, 153, 0.25); border-radius:12px; padding:12px;">
+            <div style="background:#0e0e12; border-radius:10px; padding:12px;">
                 <div style="color:#34d399; font-weight:700; font-size:0.85rem;">Active (&lt;180d): {act} clients</div>
-                <div style="color:#94a3b8; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% active purchasing base.</div>
+                <div style="color:#71717a; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% active purchasing base.</div>
             </div>
-            <div style="background: rgba(18, 22, 32, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(251, 191, 36, 0.25); border-radius:12px; padding:12px;">
+            <div style="background:#0e0e12; border-radius:10px; padding:12px;">
                 <div style="color:#fbbf24; font-weight:700; font-size:0.85rem;">At Risk (180-365d): {risk} clients</div>
-                <div style="color:#94a3b8; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6-12 months.</div>
+                <div style="color:#71717a; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6-12 months.</div>
             </div>
-            <div style="background: rgba(18, 22, 32, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(248, 113, 113, 0.25); border-radius:12px; padding:12px;">
+            <div style="background:#0e0e12; border-radius:10px; padding:12px;">
                 <div style="color:#f87171; font-weight:700; font-size:0.85rem;">Lost (&gt;365d): {lost} clients</div>
-                <div style="color:#94a3b8; font-size:0.75rem;">{(lost/len(cust_rfm)*100):.1f}% churned accounts.</div>
+                <div style="color:#71717a; font-size:0.75rem;">{(lost/len(cust_rfm)*100):.1f}% churned accounts.</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1083,7 +1039,7 @@ with tab_customer:
             y='customer_name',
             orientation='h',
             color='profit',
-            color_continuous_scale=[[0, '#f87171'], [1, '#450a0a']],
+            color_continuous_scale=[[0, '#f87171'], [1, '#331111']],
             labels={'profit': 'Profit ($)', 'customer_name': 'Client'}
         )
         apply_bento_chart_theme(fig_b10, height=360)
@@ -1132,27 +1088,27 @@ with tab_product:
         st.plotly_chart(fig_disc, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 5: STRATEGIC ROI & WHAT-IF SIMULATOR (KILLER FEATURE)
+# TAB 5: STRATEGIC ROI & WHAT-IF SIMULATOR
 # ----------------------------------------------------
 with tab_strategy:
     st.markdown("<p style='font-size:1.1rem; font-weight:800; color:#ffffff; margin-bottom:0.2rem;'>Executive Strategic Recommendations & ROI Modeling</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size:0.8rem; color:#94a3b8; margin-bottom:1.2rem;'>Actionable commercial interventions modeled directly from historical leakage vectors.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:0.8rem; color:#71717a; margin-bottom:1.2rem;'>Actionable commercial interventions modeled directly from historical leakage vectors.</p>", unsafe_allow_html=True)
 
-    # 3 Strategic Recommendations Cards
+    # 3 Strategic Recommendations Cards (Borderless)
     r1, r2, r3 = st.columns(3)
     with r1:
         st.markdown("""
-        <div style="background:rgba(18, 22, 32, 0.55); backdrop-filter:blur(16px); border:1px solid rgba(96, 165, 250, 0.25); border-radius:16px; padding:18px; height:100%;">
+        <div style="background:#0e0e12; border-radius:14px; padding:18px; height:100%;">
             <div style="color:#60a5fa; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
                 PILLAR 01 — PRICING & DISCOUNTS
             </div>
             <div style="color:#ffffff; font-weight:800; font-size:1.05rem; margin-bottom:8px;">
                 Cap Discounts at 20% on Tables & Supplies
             </div>
-            <div style="font-size:0.8rem; color:#cbd5e1; line-height:1.5; margin-bottom:12px;">
+            <div style="font-size:0.8rem; color:#94a3b8; line-height:1.5; margin-bottom:12px;">
                 Transactions discounted above 20% account for <b>84.3% of all gross losses</b> ($28K+ deficit). Enforcing strict approval gates for discounts >15% will immediately salvage margins without dampening volume.
             </div>
-            <div style="background:rgba(96, 165, 250, 0.1); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#93c5fd; font-weight:700;">
+            <div style="background:rgba(96, 165, 250, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#93c5fd; font-weight:700;">
                 Estimated Annual Impact: +$18,500 Net Profit
             </div>
         </div>
@@ -1160,17 +1116,17 @@ with tab_strategy:
         
     with r2:
         st.markdown("""
-        <div style="background:rgba(18, 22, 32, 0.55); backdrop-filter:blur(16px); border:1px solid rgba(52, 211, 153, 0.25); border-radius:16px; padding:18px; height:100%;">
+        <div style="background:#0e0e12; border-radius:14px; padding:18px; height:100%;">
             <div style="color:#34d399; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
                 PILLAR 02 — CLIENT RETENTION
             </div>
             <div style="color:#ffffff; font-weight:800; font-size:1.05rem; margin-bottom:8px;">
                 Deploy Key-Account Retention Playbook
             </div>
-            <div style="font-size:0.8rem; color:#cbd5e1; line-height:1.5; margin-bottom:12px;">
+            <div style="font-size:0.8rem; color:#94a3b8; line-height:1.5; margin-bottom:12px;">
                 Identified <b>45 enterprise corporate clients</b> currently at churn risk (180-365 days inactive) representing $85K in lifetime spend. Assigning dedicated account executives will secure recurring revenue.
             </div>
-            <div style="background:rgba(52, 211, 153, 0.1); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#6ee7b7; font-weight:700;">
+            <div style="background:rgba(52, 211, 153, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#6ee7b7; font-weight:700;">
                 Estimated Annual Impact: $65,000 Churn Protected
             </div>
         </div>
@@ -1178,27 +1134,27 @@ with tab_strategy:
         
     with r3:
         st.markdown("""
-        <div style="background:rgba(18, 22, 32, 0.55); backdrop-filter:blur(16px); border:1px solid rgba(167, 139, 250, 0.25); border-radius:16px; padding:18px; height:100%;">
+        <div style="background:#0e0e12; border-radius:14px; padding:18px; height:100%;">
             <div style="color:#a78bfa; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
                 PILLAR 03 — REGIONAL LOGISTICS
             </div>
             <div style="color:#ffffff; font-weight:800; font-size:1.05rem; margin-bottom:8px;">
                 Renegotiate Freight Subsidies in Texas & Ohio
             </div>
-            <div style="font-size:0.8rem; color:#cbd5e1; line-height:1.5; margin-bottom:12px;">
+            <div style="font-size:0.8rem; color:#94a3b8; line-height:1.5; margin-bottom:12px;">
                 Central and East regions suffer negative profitability in Texas (-$25K profit) and Ohio (-$16K profit) due to unmanaged standard freight absorption on low-margin SKUs.
             </div>
-            <div style="background:rgba(167, 139, 250, 0.1); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#c4b5fd; font-weight:700;">
+            <div style="background:rgba(167, 139, 250, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#c4b5fd; font-weight:700;">
                 Estimated Annual Impact: +$12,000 Logistics Savings
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-    st.markdown("<br><hr style='border:none; border-top:1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;'><br>", unsafe_allow_html=True)
+    st.markdown("<br><hr style='border:none; border-top:1px solid rgba(255,255,255,0.06); margin: 1.5rem 0;'><br>", unsafe_allow_html=True)
 
     # Interactive What-If Scenario Simulator
     st.markdown("<p style='font-size:1.1rem; font-weight:800; color:#ffffff; margin-bottom:0.2rem;'>Interactive Business 'What-If' Simulation Engine</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size:0.8rem; color:#94a3b8; margin-bottom:1.2rem;'>Test policy adjustments and simulate projected gross profit uplift in real-time.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:0.8rem; color:#71717a; margin-bottom:1.2rem;'>Test policy adjustments and simulate projected gross profit uplift in real-time.</p>", unsafe_allow_html=True)
 
     sim_left, sim_right = st.columns([5, 7])
     with sim_left:
@@ -1235,20 +1191,17 @@ with tab_strategy:
     # Compute Simulation Dynamics
     sim_df = filtered_df.copy()
     
-    # Policy 1: Re-pricing transactions exceeding discount cap
     over_discount_mask = sim_df['discount'] > max_discount_allowed
     profit_leakage_recovered = (
         (sim_df.loc[over_discount_mask, 'discount'] - max_discount_allowed) * 
         (sim_df.loc[over_discount_mask, 'sales'] / (1 - sim_df.loc[over_discount_mask, 'discount']))
     ).sum()
     
-    # Policy 2: Technology sales growth contribution
     tech_sales_base = sim_df[sim_df['category'] == 'Technology']['sales'].sum()
     tech_profit_base = sim_df[sim_df['category'] == 'Technology']['profit'].sum()
     tech_margin_pct = (tech_profit_base / tech_sales_base) if tech_sales_base > 0 else 0.17
     tech_profit_gain = (tech_sales_base * (tech_growth / 100)) * tech_margin_pct
     
-    # Policy 3: Retention revenue contribution
     risk_monetary_pool = cust_rfm[cust_rfm['churn_risk'] == 'At Risk (180-365d)']['monetary'].sum()
     risk_profit_pool = cust_rfm[cust_rfm['churn_risk'] == 'At Risk (180-365d)']['profit'].sum()
     retention_profit_gain = (risk_profit_pool * (retention_rate / 100)) if risk_profit_pool > 0 else (risk_monetary_pool * 0.12 * (retention_rate / 100))
@@ -1258,23 +1211,21 @@ with tab_strategy:
     simulated_margin = (simulated_total_profit / total_sales * 100) if total_sales > 0 else 0
 
     with sim_right:
-        # Simulation Result Cards
         st.markdown(f"""
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:14px;">
-            <div style="background:rgba(18, 22, 32, 0.6); border:1px solid rgba(52, 211, 153, 0.3); border-radius:14px; padding:14px;">
-                <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Projected Incremental Gain</div>
+            <div style="background:#0e0e12; border-radius:12px; padding:14px;">
+                <div style="font-size:0.72rem; color:#71717a; font-weight:700; text-transform:uppercase;">Projected Incremental Gain</div>
                 <div style="font-size:1.6rem; font-weight:800; color:#34d399; margin-top:2px;">+${total_profit_gain:,.0f}</div>
                 <div style="font-size:0.74rem; color:#6ee7b7; margin-top:4px;">Profit uplift above baseline</div>
             </div>
-            <div style="background:rgba(18, 22, 32, 0.6); border:1px solid rgba(96, 165, 250, 0.3); border-radius:14px; padding:14px;">
-                <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Simulated Operating Profit</div>
+            <div style="background:#0e0e12; border-radius:12px; padding:14px;">
+                <div style="font-size:0.72rem; color:#71717a; font-weight:700; text-transform:uppercase;">Simulated Operating Profit</div>
                 <div style="font-size:1.6rem; font-weight:800; color:#60a5fa; margin-top:2px;">${simulated_total_profit:,.0f}</div>
                 <div style="font-size:0.74rem; color:#93c5fd; margin-top:4px;">Margin: {profit_margin:.1f}% ➔ <b>{simulated_margin:.1f}%</b></div>
             </div>
         </div>
         """, unsafe_allow_html=True)
         
-        # Waterfall comparison
         fig_waterfall = go.Figure(go.Waterfall(
             name="Profit Lift",
             orientation="v",
