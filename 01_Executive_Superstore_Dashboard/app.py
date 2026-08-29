@@ -8,7 +8,7 @@ import io
 import os
 
 # ==========================================
-# PAGE CONFIGURATION & BENTO DARK STYLING
+# PAGE CONFIGURATION & BORDERLESS DARK STYLING
 # ==========================================
 st.set_page_config(
     page_title="Superstore Executive Hub — Bento Intelligence",
@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Floating Sidebar, Bento Grid, Pure Black UI
+# Custom High-End CSS: Satoshi Font, Standard Sidebar, Borderless Clean Cards, Pure Black UI
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -30,8 +30,8 @@ st.markdown("""
     .stApp {
         background-color: #050505 !important;
         background-image: 
-            radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.05) 0%, transparent 40%),
-            radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.04) 0%, transparent 40%);
+            radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.04) 0%, transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 40%);
         color: #f4f4f5;
     }
 
@@ -43,35 +43,23 @@ st.markdown("""
         max-width: 98% !important;
     }
 
-    /* Floating Elevated Sidebar */
+    /* Standard Docked Sidebar */
     section[data-testid="stSidebar"] {
-        background-color: transparent !important;
-    }
-    section[data-testid="stSidebar"] > div:first-child {
-        background: rgba(14, 14, 18, 0.85) !important;
-        backdrop-filter: blur(24px) !important;
-        -webkit-backdrop-filter: blur(24px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 22px !important;
-        margin: 16px 10px 16px 16px !important;
-        height: calc(100vh - 32px) !important;
-        box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(124, 58, 237, 0.04) !important;
-        padding: 1.5rem 1.2rem !important;
+        background-color: #0c0c10 !important;
+        border-right: none !important;
     }
 
-    /* Top Executive Bento Navigation Header */
+    /* Top Executive Bento Navigation Header - Borderless */
     .bento-nav-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.2rem 1.8rem;
-        background: rgba(15, 15, 20, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 20px;
+        padding: 1.3rem 1.8rem;
+        background: #111116;
+        border: none !important;
+        border-radius: 18px;
         margin-bottom: 1.4rem;
-        box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     .brand-title {
         font-size: 1.65rem;
@@ -92,9 +80,9 @@ st.markdown("""
         display: inline-flex;
         align-items: center;
         gap: 7px;
-        background: rgba(124, 58, 237, 0.12);
+        background: rgba(124, 58, 237, 0.15);
         color: #a78bfa;
-        border: 1px solid rgba(124, 58, 237, 0.25);
+        border: none !important;
         padding: 6px 14px;
         border-radius: 9999px;
         font-size: 0.78rem;
@@ -109,7 +97,7 @@ st.markdown("""
         box-shadow: 0 0 10px #10b981;
     }
 
-    /* Bento Grid KPI Cards */
+    /* Bento Grid KPI Cards - Borderless & Clean Elevation */
     .bento-kpi-container {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -117,35 +105,18 @@ st.markdown("""
         margin-bottom: 1.4rem;
     }
     .bento-card {
-        position: relative;
-        background: rgba(18, 18, 24, 0.65);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: #111116;
+        border: none !important;
         border-radius: 18px;
-        padding: 1.2rem 1.4rem;
-        overflow: hidden;
-        transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.4);
+        padding: 1.3rem 1.4rem;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
     }
     .bento-card:hover {
         transform: translateY(-3px);
-        border-color: rgba(124, 58, 237, 0.45);
-        box-shadow: 0 16px 36px -8px rgba(124, 58, 237, 0.18);
-        background: rgba(22, 22, 30, 0.85);
+        background: #16161c;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
     }
-    .bento-accent-line {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-    }
-    .line-violet { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
-    .line-emerald { background: linear-gradient(90deg, #10b981, #34d399); }
-    .line-cyan { background: linear-gradient(90deg, #06b6d4, #67e8f9); }
-    .line-fuchsia { background: linear-gradient(90deg, #d946ef, #f472b6); }
-    .line-amber { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
 
     .bento-card-top {
         display: flex;
@@ -181,38 +152,38 @@ st.markdown("""
         font-weight: 600;
     }
     .pill-green {
-        background: rgba(16, 185, 129, 0.12);
+        background: rgba(16, 185, 129, 0.15);
         color: #34d399;
-        border: 1px solid rgba(16, 185, 129, 0.2);
-        padding: 2px 8px;
-        border-radius: 6px;
+        border: none !important;
+        padding: 3px 9px;
+        border-radius: 8px;
     }
     .pill-red {
-        background: rgba(244, 63, 94, 0.12);
+        background: rgba(244, 63, 94, 0.15);
         color: #fb7185;
-        border: 1px solid rgba(244, 63, 94, 0.2);
-        padding: 2px 8px;
-        border-radius: 6px;
+        border: none !important;
+        padding: 3px 9px;
+        border-radius: 8px;
     }
     .pill-violet {
-        background: rgba(124, 58, 237, 0.12);
+        background: rgba(124, 58, 237, 0.15);
         color: #c4b5fd;
-        border: 1px solid rgba(124, 58, 237, 0.2);
-        padding: 2px 8px;
-        border-radius: 6px;
+        border: none !important;
+        padding: 3px 9px;
+        border-radius: 8px;
     }
 
-    /* Bento Insight Banner */
+    /* Bento Insight Banner - Borderless */
     .bento-insight-banner {
-        background: linear-gradient(135deg, rgba(24, 24, 32, 0.75) 0%, rgba(12, 12, 16, 0.85) 100%);
-        border: 1px solid rgba(124, 58, 237, 0.22);
+        background: #111116;
+        border: none !important;
         border-radius: 18px;
         padding: 1rem 1.4rem;
         margin-bottom: 1.4rem;
         display: flex;
         align-items: center;
         gap: 14px;
-        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
     }
     .insight-badge {
         font-size: 1.3rem;
@@ -224,13 +195,13 @@ st.markdown("""
         justify-content: center;
     }
 
-    /* Tab Controls */
+    /* Tab Controls - Borderless */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
-        background: rgba(15, 15, 20, 0.6);
+        background: #0f0f13;
         padding: 5px;
         border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: none !important;
     }
     .stTabs [data-baseweb="tab"] {
         height: 40px;
@@ -244,13 +215,12 @@ st.markdown("""
         transition: all 0.2s ease;
     }
     .stTabs [aria-selected="true"] {
-        background: rgba(124, 58, 237, 0.22) !important;
+        background: rgba(124, 58, 237, 0.25) !important;
         color: #ffffff !important;
-        border: 1px solid rgba(124, 58, 237, 0.4) !important;
-        box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+        border: none !important;
     }
 
-    /* Scrollbar */
+    /* Clean Scrollbar */
     ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -261,9 +231,6 @@ st.markdown("""
     ::-webkit-scrollbar-thumb {
         background: #27272a;
         border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: #3f3f46;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -280,10 +247,10 @@ def apply_bento_chart_theme(fig, height=360):
         paper_bgcolor="rgba(0,0,0,0)",
         font=dict(family="Satoshi, sans-serif", color="#71717a", size=11),
         hoverlabel=dict(
-            bgcolor="#0e0e12",
+            bgcolor="#111116",
             font_size=12,
             font_family="Satoshi",
-            bordercolor="rgba(255,255,255,0.12)"
+            bordercolor="rgba(255,255,255,0.0)"
         ),
         xaxis=dict(
             showgrid=False,
@@ -293,7 +260,7 @@ def apply_bento_chart_theme(fig, height=360):
         ),
         yaxis=dict(
             showgrid=True,
-            gridcolor="rgba(255, 255, 255, 0.035)",
+            gridcolor="rgba(255, 255, 255, 0.03)",
             zeroline=False,
             color="#52525b",
             tickfont=dict(color="#71717a", size=10)
@@ -358,12 +325,12 @@ def load_data():
 df_raw = load_data()
 
 # ==========================================
-# FLOATING SIDEBAR FILTERS
+# SIDEBAR FILTERS (STANDARD DOCKED SIDEBAR)
 # ==========================================
 with st.sidebar:
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem;">
-        <div style="background: rgba(124,58,237,0.25); border: 1px solid rgba(124,58,237,0.4); padding: 8px; border-radius: 12px;">⚡</div>
+        <div style="background: rgba(124,58,237,0.25); padding: 8px; border-radius: 12px;">⚡</div>
         <div>
             <div style="font-weight: 800; font-size: 1.15rem; color: #ffffff; letter-spacing: -0.03em;">BENTO HUB</div>
             <div style="font-size: 0.72rem; color: #a78bfa; font-weight: 700; letter-spacing: 0.05em;">COMMERCIAL BI</div>
@@ -424,8 +391,8 @@ with st.sidebar:
     
     st.divider()
     st.markdown("""
-    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 12px; font-size: 0.74rem; color: #71717a; line-height: 1.4;">
-        ✨ <b>Bento Grid Engine:</b> Dynamically renders analytics across high-dimensional retail parameters.
+    <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 12px; font-size: 0.74rem; color: #71717a; line-height: 1.4;">
+        ✨ <b>Seamless Bento UI:</b> Borderless clean interface with high-density data analytics.
     </div>
     """, unsafe_allow_html=True)
 
@@ -465,7 +432,7 @@ if filtered_df.empty:
     st.stop()
 
 # ==========================================
-# BENTO KPI CARDS ROW
+# BENTO KPI CARDS ROW (BORDERLESS)
 # ==========================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -479,7 +446,6 @@ margin_pill_class = "pill-green" if profit_margin >= 12 else ("pill-red" if prof
 st.markdown(f"""
 <div class="bento-kpi-container">
     <div class="bento-card">
-        <div class="bento-accent-line line-violet"></div>
         <div class="bento-card-top">
             <span class="bento-label">Gross Revenue</span>
             <span class="bento-icon">💎</span>
@@ -490,7 +456,6 @@ st.markdown(f"""
         </div>
     </div>
     <div class="bento-card">
-        <div class="bento-accent-line line-emerald"></div>
         <div class="bento-card-top">
             <span class="bento-label">Net Profit</span>
             <span class="bento-icon">📈</span>
@@ -501,7 +466,6 @@ st.markdown(f"""
         </div>
     </div>
     <div class="bento-card">
-        <div class="bento-accent-line line-cyan"></div>
         <div class="bento-card-top">
             <span class="bento-label">Unique Orders</span>
             <span class="bento-icon">📦</span>
@@ -512,7 +476,6 @@ st.markdown(f"""
         </div>
     </div>
     <div class="bento-card">
-        <div class="bento-accent-line line-fuchsia"></div>
         <div class="bento-card-top">
             <span class="bento-label">Active Clients</span>
             <span class="bento-icon">👥</span>
@@ -523,7 +486,6 @@ st.markdown(f"""
         </div>
     </div>
     <div class="bento-card">
-        <div class="bento-accent-line line-amber"></div>
         <div class="bento-card-top">
             <span class="bento-label">Avg Order Value</span>
             <span class="bento-icon">🎯</span>
@@ -730,7 +692,7 @@ with tab_geo:
         for _, r in top_states.iterrows():
             badge = "🟢" if r['profit_margin'] >= 10 else ("🔴" if r['profit_margin'] < 0 else "🟡")
             st.markdown(f"""
-            <div style="background: rgba(18, 18, 24, 0.7); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 12px 16px; margin-bottom: 8px;">
+            <div style="background: #111116; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px;">
                 <div style="display:flex; justify-content:space-between; font-weight:700; color:#ffffff; font-size: 0.92rem;">
                     <span>{r['state']}</span>
                     <span style="color:#a78bfa;">${r['sales']:,.0f}</span>
@@ -845,15 +807,15 @@ with tab_customer:
         st.markdown("##### 📌 **Client Cohort Health**")
         st.markdown(f"""
         <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
-            <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:12px; padding:12px;">
+            <div style="background:rgba(16,185,129,0.12); border-radius:12px; padding:12px;">
                 <div style="color:#34d399; font-weight:700; font-size:0.88rem;">🟢 Active (<180d): {act} clients</div>
                 <div style="color:#71717a; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% healthy purchasing activity.</div>
             </div>
-            <div style="background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.25); border-radius:12px; padding:12px;">
+            <div style="background:rgba(245,158,11,0.12); border-radius:12px; padding:12px;">
                 <div style="color:#fcd34d; font-weight:700; font-size:0.88rem;">🟡 At Risk (180-365d): {risk} clients</div>
                 <div style="color:#71717a; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6+ months.</div>
             </div>
-            <div style="background:rgba(244,63,94,0.08); border:1px solid rgba(244,63,94,0.25); border-radius:12px; padding:12px;">
+            <div style="background:rgba(244,63,94,0.12); border-radius:12px; padding:12px;">
                 <div style="color:#fb7185; font-weight:700; font-size:0.88rem;">🔴 Lost (>365d): {lost} clients</div>
                 <div style="color:#71717a; font-size:0.75rem;">{(lost/len(cust_rfm)*100):.1f}% churned accounts.</div>
             </div>
