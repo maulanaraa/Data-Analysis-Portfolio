@@ -8,16 +8,16 @@ import io
 import os
 
 # ==========================================
-# PAGE CONFIGURATION & BORDERLESS DARK STYLING
+# PAGE CONFIGURATION & MINIMALIST STYLING
 # ==========================================
 st.set_page_config(
-    page_title="Superstore Executive Hub — Bento Intelligence",
-    page_icon="⚡",
+    page_title="Superstore Executive Hub — Commercial Intelligence",
+    page_icon="■",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Standard Sidebar, Borderless Clean Cards, Pure Black UI
+# Custom High-End CSS: Satoshi Font, Lucide Monochromatic SVGs, Borderless Pure Black UI
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -29,9 +29,6 @@ st.markdown("""
     
     .stApp {
         background-color: #050505 !important;
-        background-image: 
-            radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.04) 0%, transparent 40%),
-            radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 40%);
         color: #f4f4f5;
     }
 
@@ -49,55 +46,50 @@ st.markdown("""
         border-right: none !important;
     }
 
-    /* Top Executive Bento Navigation Header - Borderless */
+    /* Top Executive Navigation Header - Minimalist */
     .bento-nav-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1.3rem 1.8rem;
         background: #111116;
-        border: none !important;
-        border-radius: 18px;
+        border-radius: 16px;
         margin-bottom: 1.4rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
     }
     .brand-title {
-        font-size: 1.65rem;
+        font-size: 1.55rem;
         font-weight: 800;
-        letter-spacing: -0.04em;
-        background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.03em;
+        color: #ffffff;
         margin: 0;
     }
     .brand-subtitle {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
         color: #71717a;
         font-weight: 500;
         margin-top: 3px;
+        letter-spacing: 0.01em;
     }
     .live-chip {
         display: inline-flex;
         align-items: center;
-        gap: 7px;
-        background: rgba(124, 58, 237, 0.15);
-        color: #a78bfa;
-        border: none !important;
+        gap: 8px;
+        background: #18181f;
+        color: #a1a1aa;
         padding: 6px 14px;
-        border-radius: 9999px;
-        font-size: 0.78rem;
+        border-radius: 8px;
+        font-size: 0.76rem;
         font-weight: 600;
-        letter-spacing: 0.01em;
     }
     .pulse-dot {
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         background-color: #10b981;
         border-radius: 50%;
-        box-shadow: 0 0 10px #10b981;
     }
 
-    /* Bento Grid KPI Cards - Borderless & Clean Elevation */
+    /* Bento Grid KPI Cards - Minimalist SVG */
     .bento-kpi-container {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -106,37 +98,36 @@ st.markdown("""
     }
     .bento-card {
         background: #111116;
-        border: none !important;
-        border-radius: 18px;
-        padding: 1.3rem 1.4rem;
-        transition: all 0.25s ease;
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+        border-radius: 16px;
+        padding: 1.25rem 1.4rem;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
     .bento-card:hover {
-        transform: translateY(-3px);
-        background: #16161c;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+        transform: translateY(-2px);
+        background: #15151c;
     }
 
     .bento-card-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.6rem;
     }
     .bento-label {
-        font-size: 0.76rem;
+        font-size: 0.74rem;
         font-weight: 700;
         color: #71717a;
         text-transform: uppercase;
         letter-spacing: 0.06em;
     }
-    .bento-icon {
-        font-size: 1.15rem;
-        opacity: 0.85;
+    .svg-icon {
+        color: #71717a;
+        display: flex;
+        align-items: center;
     }
     .bento-value {
-        font-size: 1.85rem;
+        font-size: 1.8rem;
         font-weight: 800;
         color: #ffffff;
         letter-spacing: -0.03em;
@@ -148,76 +139,68 @@ st.markdown("""
         display: flex;
         align-items: center;
         gap: 6px;
-        font-size: 0.78rem;
+        font-size: 0.76rem;
         font-weight: 600;
     }
     .pill-green {
-        background: rgba(16, 185, 129, 0.15);
+        background: rgba(16, 185, 129, 0.12);
         color: #34d399;
-        border: none !important;
-        padding: 3px 9px;
-        border-radius: 8px;
+        padding: 3px 8px;
+        border-radius: 6px;
     }
     .pill-red {
-        background: rgba(244, 63, 94, 0.15);
+        background: rgba(244, 63, 94, 0.12);
         color: #fb7185;
-        border: none !important;
-        padding: 3px 9px;
-        border-radius: 8px;
+        padding: 3px 8px;
+        border-radius: 6px;
     }
-    .pill-violet {
-        background: rgba(124, 58, 237, 0.15);
-        color: #c4b5fd;
-        border: none !important;
-        padding: 3px 9px;
-        border-radius: 8px;
+    .pill-neutral {
+        background: #181820;
+        color: #a1a1aa;
+        padding: 3px 8px;
+        border-radius: 6px;
     }
 
-    /* Bento Insight Banner - Borderless */
+    /* Minimalist Insight Banner */
     .bento-insight-banner {
         background: #111116;
-        border: none !important;
-        border-radius: 18px;
-        padding: 1rem 1.4rem;
+        border-radius: 14px;
+        padding: 0.9rem 1.3rem;
         margin-bottom: 1.4rem;
         display: flex;
         align-items: center;
-        gap: 14px;
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+        gap: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
-    .insight-badge {
-        font-size: 1.3rem;
-        background: rgba(124, 58, 237, 0.2);
-        padding: 6px 10px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .insight-indicator {
+        width: 3px;
+        height: 24px;
+        background: #7c3aed;
+        border-radius: 2px;
+        flex-shrink: 0;
     }
 
-    /* Tab Controls - Borderless */
+    /* Tab Controls - Minimalist */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background: #0f0f13;
-        padding: 5px;
-        border-radius: 14px;
-        border: none !important;
+        gap: 6px;
+        background: #0f0f14;
+        padding: 4px;
+        border-radius: 12px;
     }
     .stTabs [data-baseweb="tab"] {
-        height: 40px;
-        border-radius: 10px;
+        height: 38px;
+        border-radius: 8px;
         color: #71717a;
         font-weight: 600;
-        font-size: 0.85rem;
-        padding: 0 18px;
+        font-size: 0.84rem;
+        padding: 0 16px;
         border: none !important;
         background: transparent;
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
     }
     .stTabs [aria-selected="true"] {
-        background: rgba(124, 58, 237, 0.25) !important;
+        background: #181822 !important;
         color: #ffffff !important;
-        border: none !important;
     }
 
     /* Clean Scrollbar */
@@ -325,25 +308,22 @@ def load_data():
 df_raw = load_data()
 
 # ==========================================
-# SIDEBAR FILTERS (STANDARD DOCKED SIDEBAR)
+# SIDEBAR FILTERS (MINIMALIST DOCKED)
 # ==========================================
 with st.sidebar:
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem;">
-        <div style="background: rgba(124,58,237,0.25); padding: 8px; border-radius: 12px;">⚡</div>
-        <div>
-            <div style="font-weight: 800; font-size: 1.15rem; color: #ffffff; letter-spacing: -0.03em;">BENTO HUB</div>
-            <div style="font-size: 0.72rem; color: #a78bfa; font-weight: 700; letter-spacing: 0.05em;">COMMERCIAL BI</div>
-        </div>
+    <div style="padding-bottom: 0.8rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="font-weight: 800; font-size: 1.1rem; color: #ffffff; letter-spacing: -0.02em;">SUPERSTORE BI</div>
+        <div style="font-size: 0.72rem; color: #71717a; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Commercial Analytics</div>
     </div>
     """, unsafe_allow_html=True)
     
     min_date = df_raw['order_date'].min().date()
     max_date = df_raw['order_date'].max().date()
     
-    st.markdown("#### 📅 **Timeline Range**")
+    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#a1a1aa;'>Date Range</span>", unsafe_allow_html=True)
     date_selection = st.date_input(
-        "Date Selector",
+        "Date Range",
         value=(min_date, max_date),
         min_value=min_date,
         max_value=max_date,
@@ -355,9 +335,9 @@ with st.sidebar:
     else:
         start_date, end_date = min_date, max_date
         
-    st.divider()
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    st.markdown("#### 🌐 **Market Hierarchy**")
+    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#a1a1aa;'>Market Hierarchy</span>", unsafe_allow_html=True)
     all_regions = sorted(df_raw['region'].dropna().unique().tolist())
     selected_regions = st.multiselect(
         "Regions",
@@ -374,7 +354,7 @@ with st.sidebar:
     
     all_categories = sorted(df_raw['category'].dropna().unique().tolist())
     selected_categories = st.multiselect(
-        "Categories",
+        "Product Categories",
         options=all_categories,
         default=all_categories
     )
@@ -388,13 +368,6 @@ with st.sidebar:
         options=available_subcats,
         default=available_subcats
     )
-    
-    st.divider()
-    st.markdown("""
-    <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 12px; font-size: 0.74rem; color: #71717a; line-height: 1.4;">
-        ✨ <b>Seamless Bento UI:</b> Borderless clean interface with high-density data analytics.
-    </div>
-    """, unsafe_allow_html=True)
 
 # ==========================================
 # FILTER DATA ENGINE
@@ -413,26 +386,26 @@ if selected_subcats:
     filtered_df = filtered_df[filtered_df['sub_category'].isin(selected_subcats)]
 
 # ==========================================
-# TOP BENTO NAVIGATION HEADER
+# TOP NAVIGATION HEADER
 # ==========================================
 st.markdown(f"""
 <div class="bento-nav-card">
     <div>
-        <h1 class="brand-title">Superstore Executive Performance Hub</h1>
-        <div class="brand-subtitle">Commercial Velocity, RFM Churn Modeling & Regional Profitability Matrix</div>
+        <h1 class="brand-title">Executive Performance Hub</h1>
+        <div class="brand-subtitle">Commercial Velocity, RFM Retention & Regional Contribution Matrix</div>
     </div>
     <div class="live-chip">
-        <span class="pulse-dot"></span> Filtered: {start_date.strftime('%b %Y')} – {end_date.strftime('%b %Y')}
+        <span class="pulse-dot"></span> {start_date.strftime('%b %Y')} – {end_date.strftime('%b %Y')}
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 if filtered_df.empty:
-    st.warning("⚠️ No records match the current filter selection.")
+    st.warning("No records match the current filter selection.")
     st.stop()
 
 # ==========================================
-# BENTO KPI CARDS ROW (BORDERLESS)
+# BENTO KPI CARDS ROW (WITH CLEAN LUCIDE SVGS)
 # ==========================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -441,65 +414,75 @@ total_orders = filtered_df['order_id'].nunique()
 total_customers = filtered_df['customer_id'].nunique()
 avg_order_value = (total_sales / total_orders) if total_orders > 0 else 0
 
-margin_pill_class = "pill-green" if profit_margin >= 12 else ("pill-red" if profit_margin < 0 else "pill-violet")
+margin_pill_class = "pill-green" if profit_margin >= 12 else ("pill-red" if profit_margin < 0 else "pill-neutral")
 
 st.markdown(f"""
 <div class="bento-kpi-container">
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Gross Revenue</span>
-            <span class="bento-icon">💎</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </span>
         </div>
         <div class="bento-value">${total_sales:,.0f}</div>
         <div class="bento-footer">
-            <span class="pill-violet">Total Volume</span>
+            <span class="pill-neutral">Total Sales</span>
         </div>
     </div>
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Net Profit</span>
-            <span class="bento-icon">📈</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </span>
         </div>
         <div class="bento-value">${total_profit:,.0f}</div>
         <div class="bento-footer">
-            <span class="{margin_pill_class}">Margin: {profit_margin:.1f}%</span>
+            <span class="{margin_pill_class}">Margin {profit_margin:.1f}%</span>
         </div>
     </div>
     <div class="bento-card">
         <div class="bento-card-top">
-            <span class="bento-label">Unique Orders</span>
-            <span class="bento-icon">📦</span>
+            <span class="bento-label">Total Orders</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </span>
         </div>
         <div class="bento-value">{total_orders:,}</div>
         <div class="bento-footer">
-            <span class="pill-violet">Transactions</span>
+            <span class="pill-neutral">Unique Orders</span>
         </div>
     </div>
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Active Clients</span>
-            <span class="bento-icon">👥</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </span>
         </div>
         <div class="bento-value">{total_customers:,}</div>
         <div class="bento-footer">
-            <span class="pill-green">Customer Base</span>
+            <span class="pill-green">Client Base</span>
         </div>
     </div>
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Avg Order Value</span>
-            <span class="bento-icon">🎯</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+            </span>
         </div>
         <div class="bento-value">${avg_order_value:,.1f}</div>
         <div class="bento-footer">
-            <span class="pill-violet">AOV / Basket</span>
+            <span class="pill-neutral">AOV / Basket</span>
         </div>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ==========================================
-# BENTO INSIGHT BANNER
+# MINIMALIST INSIGHT BANNER
 # ==========================================
 best_cat = filtered_df.groupby('category')['sales'].sum().idxmax()
 best_cat_sales = filtered_df.groupby('category')['sales'].sum().max()
@@ -508,33 +491,33 @@ worst_subcat_profit = filtered_df.groupby('sub_category')['profit'].sum().min()
 
 st.markdown(f"""
 <div class="bento-insight-banner">
-    <div class="insight-badge">💡</div>
-    <div style="font-size: 0.85rem; color: #a1a1aa; line-height: 1.5;">
-        <b>Executive Takeaway:</b> Product category <b style="color:#ffffff;">{best_cat}</b> generated the highest gross volume (<b style="color:#a78bfa;">${best_cat_sales:,.0f}</b>). 
-        {"⚠️ <b>Leakage Warning:</b> Sub-category <b style='color:#fb7185;'>" + worst_subcat + "</b> recorded an aggregate deficit of <b style='color:#fb7185;'>$" + f"{worst_subcat_profit:,.0f}</b> due to heavy promotional discounting." if worst_subcat_profit < 0 else "All sub-categories maintain positive net contribution."}
+    <div class="insight-indicator"></div>
+    <div style="font-size: 0.84rem; color: #a1a1aa; line-height: 1.5;">
+        <b style="color:#ffffff;">Executive Note:</b> Category <b style="color:#ffffff;">{best_cat}</b> generated the highest gross volume (<b style="color:#ffffff;">${best_cat_sales:,.0f}</b>). 
+        {"Margin warning: Sub-category <b style='color:#fb7185;'>" + worst_subcat + "</b> recorded an aggregate deficit of <b style='color:#fb7185;'>$" + f"{worst_subcat_profit:,.0f}</b>." if worst_subcat_profit < 0 else "All sub-categories maintain positive net contribution."}
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ==========================================
-# BENTO ANALYTICAL MODULES (TABS)
+# ANALYTICAL MODULES (TABS)
 # ==========================================
 tab_overview, tab_geo, tab_customer, tab_product, tab_data = st.tabs([
-    "📊 Financial Velocity",
-    "🗺️ Geospatial & Regional",
-    "👥 Client Retention & RFM",
-    "📦 Margin & Pricing Analysis",
-    "📋 Data Intelligence Explorer"
+    "Financial Trajectory",
+    "Geospatial & Regional",
+    "Customer Retention & RFM",
+    "Product Margin & Pricing",
+    "Data Explorer"
 ])
 
 # ----------------------------------------------------
-# TAB 1: FINANCIAL VELOCITY
+# TAB 1: FINANCIAL TRAJECTORY
 # ----------------------------------------------------
 with tab_overview:
     b1_left, b1_right = st.columns([7, 5])
     
     with b1_left:
-        st.markdown("##### 📈 **Monthly Trajectory: Revenue vs Net Profit**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Monthly Revenue & Profit Trajectory</p>", unsafe_allow_html=True)
         monthly_df = filtered_df.groupby('year_month').agg(
             sales=('sales', 'sum'),
             profit=('profit', 'sum')
@@ -548,7 +531,7 @@ with tab_overview:
             mode="lines+markers",
             line=dict(color="#7c3aed", width=3, shape="spline"),
             fill='tozeroy',
-            fillcolor='rgba(124, 58, 237, 0.08)'
+            fillcolor='rgba(124, 58, 237, 0.06)'
         ))
         fig_trend.add_trace(go.Scatter(
             x=monthly_df['year_month'],
@@ -572,7 +555,7 @@ with tab_overview:
         st.plotly_chart(fig_trend, use_container_width=True)
         
     with b1_right:
-        st.markdown("##### 🍩 **Customer Segment Share**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Customer Segment Distribution</p>", unsafe_allow_html=True)
         seg_df = filtered_df.groupby('segment').agg(
             sales=('sales', 'sum'),
             profit=('profit', 'sum')
@@ -603,7 +586,7 @@ with tab_overview:
     
     b1_c3, b1_c4 = st.columns([6, 6])
     with b1_c3:
-        st.markdown("##### 📊 **Revenue by Sub-Category**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Sales by Sub-Category</p>", unsafe_allow_html=True)
         sub_sales = filtered_df.groupby(['category', 'sub_category'])['sales'].sum().reset_index().sort_values('sales', ascending=True)
         fig_sub = px.bar(
             sub_sales,
@@ -618,7 +601,7 @@ with tab_overview:
         st.plotly_chart(fig_sub, use_container_width=True)
         
     with b1_c4:
-        st.markdown("##### 🎯 **Profit Margin Breakdown (%)**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Profit Margin Spectrum (%)</p>", unsafe_allow_html=True)
         sub_prof = filtered_df.groupby('sub_category').agg(
             sales=('sales', 'sum'),
             profit=('profit', 'sum')
@@ -667,7 +650,7 @@ with tab_geo:
     
     g_left, g_right = st.columns([7, 5])
     with g_left:
-        st.markdown("##### 🗺️ **State-Level Revenue Density (US)**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>State-Level Revenue Density (US)</p>", unsafe_allow_html=True)
         fig_map = px.choropleth(
             state_df.dropna(subset=['state_code']),
             locations='state_code',
@@ -687,19 +670,19 @@ with tab_geo:
         st.plotly_chart(fig_map, use_container_width=True)
         
     with g_right:
-        st.markdown("##### 🏆 **Top 5 Contributing States**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Top 5 Contributing States</p>", unsafe_allow_html=True)
         top_states = state_df.sort_values('sales', ascending=False).head(5)
         for _, r in top_states.iterrows():
-            badge = "🟢" if r['profit_margin'] >= 10 else ("🔴" if r['profit_margin'] < 0 else "🟡")
+            badge_color = "#34d399" if r['profit_margin'] >= 10 else ("#fb7185" if r['profit_margin'] < 0 else "#fcd34d")
             st.markdown(f"""
-            <div style="background: #111116; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px;">
-                <div style="display:flex; justify-content:space-between; font-weight:700; color:#ffffff; font-size: 0.92rem;">
+            <div style="background: #111116; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px;">
+                <div style="display:flex; justify-content:space-between; font-weight:700; color:#ffffff; font-size: 0.9rem;">
                     <span>{r['state']}</span>
                     <span style="color:#a78bfa;">${r['sales']:,.0f}</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#71717a; margin-top:4px;">
                     <span>Profit: ${r['profit']:,.0f}</span>
-                    <span>{badge} Margin: {r['profit_margin']:.1f}%</span>
+                    <span style="color:{badge_color};">Margin: {r['profit_margin']:.1f}%</span>
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -708,7 +691,7 @@ with tab_geo:
     
     g2_left, g2_right = st.columns(2)
     with g2_left:
-        st.markdown("##### 🌡️ **Regional Profit Matrix (Region vs Segment)**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Regional Profitability Matrix (Region vs Segment)</p>", unsafe_allow_html=True)
         pivot_r = filtered_df.pivot_table(index='region', columns='segment', values='profit', aggfunc='sum').fillna(0)
         fig_hm = px.imshow(
             pivot_r,
@@ -721,7 +704,7 @@ with tab_geo:
         st.plotly_chart(fig_hm, use_container_width=True)
         
     with g2_right:
-        st.markdown("##### 🚚 **Fulfillment Dynamics by Shipping Mode**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Fulfillment Dynamics by Shipping Mode</p>", unsafe_allow_html=True)
         ship_df = filtered_df.groupby('ship_mode').agg(
             sales=('sales', 'sum'),
             profit=('profit', 'sum'),
@@ -741,7 +724,7 @@ with tab_geo:
         st.plotly_chart(fig_ship, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 3: CLIENT RETENTION & RFM
+# TAB 3: CUSTOMER RETENTION & RFM
 # ----------------------------------------------------
 with tab_customer:
     ref_date = filtered_df['order_date'].max()
@@ -804,19 +787,19 @@ with tab_customer:
         risk = (cust_rfm['churn_risk'] == 'At Risk (180-365d)').sum()
         lost = (cust_rfm['churn_risk'] == 'Lost (>365d)').sum()
         
-        st.markdown("##### 📌 **Client Cohort Health**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Client Cohort Health</p>", unsafe_allow_html=True)
         st.markdown(f"""
-        <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
-            <div style="background:rgba(16,185,129,0.12); border-radius:12px; padding:12px;">
-                <div style="color:#34d399; font-weight:700; font-size:0.88rem;">🟢 Active (<180d): {act} clients</div>
-                <div style="color:#71717a; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% healthy purchasing activity.</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="background:#111116; border-radius:10px; padding:12px;">
+                <div style="color:#34d399; font-weight:700; font-size:0.85rem;">Active (&lt;180d): {act} clients</div>
+                <div style="color:#71717a; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% active purchasing base.</div>
             </div>
-            <div style="background:rgba(245,158,11,0.12); border-radius:12px; padding:12px;">
-                <div style="color:#fcd34d; font-weight:700; font-size:0.88rem;">🟡 At Risk (180-365d): {risk} clients</div>
-                <div style="color:#71717a; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6+ months.</div>
+            <div style="background:#111116; border-radius:10px; padding:12px;">
+                <div style="color:#fcd34d; font-weight:700; font-size:0.85rem;">At Risk (180-365d): {risk} clients</div>
+                <div style="color:#71717a; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6-12 months.</div>
             </div>
-            <div style="background:rgba(244,63,94,0.12); border-radius:12px; padding:12px;">
-                <div style="color:#fb7185; font-weight:700; font-size:0.88rem;">🔴 Lost (>365d): {lost} clients</div>
+            <div style="background:#111116; border-radius:10px; padding:12px;">
+                <div style="color:#fb7185; font-weight:700; font-size:0.85rem;">Lost (&gt;365d): {lost} clients</div>
                 <div style="color:#71717a; font-size:0.75rem;">{(lost/len(cust_rfm)*100):.1f}% churned accounts.</div>
             </div>
         </div>
@@ -826,7 +809,7 @@ with tab_customer:
     
     top_c_l, top_c_r = st.columns(2)
     with top_c_l:
-        st.markdown("##### 🌟 **Top 10 High-Margin Clients**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Top 10 High-Margin Accounts</p>", unsafe_allow_html=True)
         top_10 = cust_rfm.sort_values('profit', ascending=False).head(10)
         fig_t10 = px.bar(
             top_10,
@@ -842,7 +825,7 @@ with tab_customer:
         st.plotly_chart(fig_t10, use_container_width=True)
         
     with top_c_r:
-        st.markdown("##### ⚠️ **Top 10 Loss-Making Clients**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Top 10 Loss-Driving Accounts</p>", unsafe_allow_html=True)
         bot_10 = cust_rfm.sort_values('profit', ascending=True).head(10)
         fig_b10 = px.bar(
             bot_10,
@@ -857,12 +840,12 @@ with tab_customer:
         st.plotly_chart(fig_b10, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 4: MARGIN & PRICING
+# TAB 4: PRODUCT & PRICING
 # ----------------------------------------------------
 with tab_product:
     p1, p2 = st.columns(2)
     with p1:
-        st.markdown("##### 🏆 **Top 10 Revenue Generating SKUs**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Top 10 Revenue Generating SKUs</p>", unsafe_allow_html=True)
         top_prod = filtered_df.groupby('product_name').agg(
             sales=('sales', 'sum'),
             profit=('profit', 'sum')
@@ -882,7 +865,7 @@ with tab_product:
         st.plotly_chart(fig_tp, use_container_width=True)
         
     with p2:
-        st.markdown("##### 📉 **Discount vs Margin Sensitivity**")
+        st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Discount vs Margin Sensitivity</p>", unsafe_allow_html=True)
         sample_prod = filtered_df.sample(min(len(filtered_df), 1200), random_state=42)
         fig_disc = px.scatter(
             sample_prod,
@@ -902,13 +885,13 @@ with tab_product:
 # TAB 5: DATA EXPLORER
 # ----------------------------------------------------
 with tab_data:
-    st.markdown("##### 📋 **Granular Transactional Ledger**")
+    st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#e4e4e7; margin-bottom:0.5rem;'>Granular Transactional Ledger</p>", unsafe_allow_html=True)
     
     f1, f2 = st.columns([8, 4])
     with f1:
-        q = st.text_input("🔍 Search Database (Product, Customer, State, City, ID)", "")
+        q = st.text_input("Search Ledger (Product, Customer, State, City, ID)", "", label_visibility="collapsed")
     with f2:
-        page_size = st.selectbox("Display Limit", [50, 100, 250, 500, "All Records"], index=0)
+        page_size = st.selectbox("Display Limit", [50, 100, 250, 500, "All Records"], index=0, label_visibility="collapsed")
         
     table_df = filtered_df.copy()
     if q:
@@ -928,7 +911,7 @@ with tab_data:
     with e1:
         csv_bytes = filtered_df.to_csv(index=False).encode('utf-8')
         st.download_button(
-            "📥 Export Filtered Ledger (CSV)",
+            "Export Filtered Ledger (CSV)",
             data=csv_bytes,
             file_name=f"superstore_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv",
@@ -939,7 +922,7 @@ with tab_data:
         with pd.ExcelWriter(b, engine='openpyxl') as w:
             filtered_df.to_excel(w, index=False, sheet_name='Superstore Data')
         st.download_button(
-            "📊 Export Filtered Ledger (Excel)",
+            "Export Filtered Ledger (Excel)",
             data=b.getvalue(),
             file_name=f"superstore_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
