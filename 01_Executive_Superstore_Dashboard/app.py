@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Pure Matte Black (Borderless), Vibrant Chart Accents
+# Custom High-End CSS: Satoshi Font, Pure Matte Black (Borderless), Soft Muted Accents
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -116,7 +116,7 @@ st.markdown("""
         gap: 8px;
         background: #18181f;
         border: none !important;
-        color: #93c5fd;
+        color: #7e9eb8;
         padding: 6px 14px;
         border-radius: 8px;
         font-size: 0.76rem;
@@ -125,9 +125,9 @@ st.markdown("""
     .pulse-dot {
         width: 6px;
         height: 6px;
-        background-color: #34d399;
+        background-color: #8ebaa3;
         border-radius: 50%;
-        box-shadow: 0 0 6px #34d399;
+        box-shadow: 0 0 6px #8ebaa3;
     }
 
     /* Bento Grid KPI Cards (Borderless) */
@@ -184,20 +184,20 @@ st.markdown("""
         font-weight: 600;
     }
     .pill-soft-green {
-        background: rgba(52, 211, 153, 0.15);
-        color: #34d399;
+        background: rgba(142, 186, 163, 0.15);
+        color: #8ebaa3;
         padding: 3px 8px;
         border-radius: 6px;
     }
     .pill-soft-red {
-        background: rgba(248, 113, 113, 0.15);
-        color: #f87171;
+        background: rgba(217, 130, 116, 0.15);
+        color: #d98274;
         padding: 3px 8px;
         border-radius: 6px;
     }
     .pill-soft-blue {
-        background: rgba(96, 165, 250, 0.15);
-        color: #60a5fa;
+        background: rgba(126, 158, 184, 0.15);
+        color: #7e9eb8;
         padding: 3px 8px;
         border-radius: 6px;
     }
@@ -217,7 +217,7 @@ st.markdown("""
     .insight-indicator {
         width: 3px;
         height: 24px;
-        background: #60a5fa;
+        background: #7e9eb8;
         border-radius: 2px;
         flex-shrink: 0;
     }
@@ -318,7 +318,7 @@ st.markdown("""
     }
     .profile-role {
         font-size: 0.74rem;
-        color: #60a5fa;
+        color: #7e9eb8;
         font-weight: 600;
         margin-bottom: 0.8rem;
         text-transform: uppercase;
@@ -362,7 +362,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# PLOTLY COLOR THEME ENGINE (VIBRANT & SOFT)
+# PLOTLY COLOR THEME ENGINE (SOFT & MUTED)
 # ==========================================
 def apply_bento_chart_theme(fig, height=360):
     fig.update_layout(
@@ -371,7 +371,7 @@ def apply_bento_chart_theme(fig, height=360):
         margin=dict(l=15, r=15, t=35, b=15),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Satoshi, sans-serif", color="#71717a", size=11),
+        font=dict(family="Satoshi, sans-serif", color="#8e8e93", size=11),
         hoverlabel=dict(
             bgcolor="#141419",
             font_size=12,
@@ -382,14 +382,14 @@ def apply_bento_chart_theme(fig, height=360):
             showgrid=False,
             zeroline=False,
             color="#52525b",
-            tickfont=dict(color="#71717a", size=10)
+            tickfont=dict(color="#8e8e93", size=10)
         ),
         yaxis=dict(
             showgrid=True,
             gridcolor="rgba(255, 255, 255, 0.03)",
             zeroline=False,
             color="#52525b",
-            tickfont=dict(color="#71717a", size=10)
+            tickfont=dict(color="#8e8e93", size=10)
         ),
         legend=dict(
             orientation="h",
@@ -457,7 +457,7 @@ with st.sidebar:
     st.markdown("""
     <div style="padding-bottom: 0.8rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
         <div style="font-weight: 800; font-size: 1.1rem; color: #ffffff; letter-spacing: -0.02em;">SUPERSTORE BI</div>
-        <div style="font-size: 0.72rem; color: #60a5fa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Commercial Analytics</div>
+        <div style="font-size: 0.72rem; color: #7e9eb8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Commercial Analytics</div>
     </div>
     """, unsafe_allow_html=True)
     
@@ -516,7 +516,7 @@ with st.sidebar:
     st.markdown("""
     <div class="profile-card">
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, #60a5fa, #34d399); display:flex; align-items:center; justify-content:center; font-weight:800; color:#000; font-size:0.85rem;">
+            <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, #7e9eb8, #8ebaa3); display:flex; align-items:center; justify-content:center; font-weight:800; color:#000; font-size:0.85rem;">
                 AM
             </div>
             <div>
@@ -538,7 +538,7 @@ with st.sidebar:
             <a href="https://github.com/maulanaraa/Data-Analysis-Portfolio" target="_blank" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; background:#1c1c24; color:#ffffff; padding:7px 12px; border-radius:8px; font-size:0.75rem; font-weight:600;">
                 GitHub Repository
             </a>
-            <a href="mailto:contact@example.com" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; background:rgba(96, 165, 250, 0.18); color:#60a5fa; padding:7px 12px; border-radius:8px; font-size:0.75rem; font-weight:600;">
+            <a href="mailto:contact@example.com" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; background:rgba(126, 158, 184, 0.18); color:#7e9eb8; padding:7px 12px; border-radius:8px; font-size:0.75rem; font-weight:600;">
                 Contact Analyst
             </a>
         </div>
@@ -584,21 +584,21 @@ with st.expander("Analytical Framework, Business Objectives & STAR Methodology",
     <div style="font-size:0.84rem; color:#cbd5e1; line-height:1.6;">
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:6px;">
             <div style="background:#0e0e12; padding:12px; border-radius:10px;">
-                <b style="color:#60a5fa;">1. Business Problem & Situation</b><br>
+                <b style="color:#7e9eb8;">1. Business Problem & Situation</b><br>
                 A retail conglomerate with $2.3M+ in transactional volume faced margin erosion in select product categories and rising customer churn in key enterprise segments despite strong top-line revenue growth.
             </div>
             <div style="background:#0e0e12; padding:12px; border-radius:10px;">
-                <b style="color:#34d399;">2. Task & Strategic Objective</b><br>
+                <b style="color:#8ebaa3;">2. Task & Strategic Objective</b><br>
                 Engineer an executive decision system to pinpoint leakage points across price-discount sensitivity, state-level freight subsidies, and customer retention cohorts to protect net operating margin.
             </div>
             <div style="background:#0e0e12; padding:12px; border-radius:10px;">
-                <b style="color:#a78bfa;">3. Analytical Actions & Methodologies</b><br>
+                <b style="color:#9fa8da;">3. Analytical Actions & Methodologies</b><br>
                 • <b>RFM Segmentation:</b> Multi-dimensional clustering to isolate active vs churn-risk accounts.<br>
                 • <b>Geospatial Contribution:</b> Choropleth state profit density & margin matrices.<br>
                 • <b>Prescriptive Simulator:</b> Interactive What-If model for discount optimization.
             </div>
             <div style="background:#0e0e12; padding:12px; border-radius:10px;">
-                <b style="color:#fbbf24;">4. Quantifiable Business Impact</b><br>
+                <b style="color:#d8b384;">4. Quantifiable Business Impact</b><br>
                 Identified <b>+$38,400</b> in immediate profit recovery by eliminating toxic discounts (>20%) and protected <b>$120K+</b> in at-risk enterprise client revenue through targeted retention playbooks.
             </div>
         </div>
@@ -627,7 +627,7 @@ st.markdown(f"""
         <div class="bento-card-top">
             <span class="bento-label">Gross Revenue</span>
             <span class="svg-icon">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7e9eb8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             </span>
         </div>
         <div class="bento-value">${total_sales:,.0f}</div>
@@ -639,7 +639,7 @@ st.markdown(f"""
         <div class="bento-card-top">
             <span class="bento-label">Net Profit</span>
             <span class="svg-icon">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8ebaa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
             </span>
         </div>
         <div class="bento-value">${total_profit:,.0f}</div>
@@ -663,7 +663,7 @@ st.markdown(f"""
         <div class="bento-card-top">
             <span class="bento-label">Active Clients</span>
             <span class="svg-icon">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8ebaa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             </span>
         </div>
         <div class="bento-value">{total_customers:,}</div>
@@ -675,7 +675,7 @@ st.markdown(f"""
         <div class="bento-card-top">
             <span class="bento-label">Avg Order Value</span>
             <span class="svg-icon">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9fa8da" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
             </span>
         </div>
         <div class="bento-value">${avg_order_value:,.1f}</div>
@@ -698,8 +698,8 @@ st.markdown(f"""
 <div class="bento-insight-banner">
     <div class="insight-indicator"></div>
     <div style="font-size: 0.84rem; color: #a1a1aa; line-height: 1.5;">
-        <b style="color:#ffffff;">Executive Note:</b> Category <b style="color:#60a5fa;">{best_cat}</b> generated the highest gross volume (<b style="color:#ffffff;">${best_cat_sales:,.0f}</b>). 
-        {"Margin deficit detected in sub-category <b style='color:#f87171;'>" + worst_subcat + "</b> with net loss of <b style='color:#f87171;'>$" + f"{worst_subcat_profit:,.0f}</b>." if worst_subcat_profit < 0 else "All sub-categories maintain positive net contribution."}
+        <b style="color:#ffffff;">Executive Note:</b> Category <b style="color:#7e9eb8;">{best_cat}</b> generated the highest gross volume (<b style="color:#ffffff;">${best_cat_sales:,.0f}</b>). 
+        {"Margin deficit detected in sub-category <b style='color:#d98274;'>" + worst_subcat + "</b> with net loss of <b style='color:#d98274;'>$" + f"{worst_subcat_profit:,.0f}</b>." if worst_subcat_profit < 0 else "All sub-categories maintain positive net contribution."}
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -717,7 +717,7 @@ tab_overview, tab_geo, tab_customer, tab_product, tab_strategy, tab_data = st.ta
 ])
 
 # ----------------------------------------------------
-# TAB 1: FINANCIAL TRAJECTORY
+# TAB 1: FINANCIAL TRAJECTORY (SOFT PALETTE)
 # ----------------------------------------------------
 with tab_overview:
     b1_left, b1_right = st.columns([7, 5])
@@ -735,16 +735,16 @@ with tab_overview:
             y=monthly_df['sales'],
             name="Gross Sales ($)",
             mode="lines+markers",
-            line=dict(color="#60a5fa", width=2.8, shape="spline"),
+            line=dict(color="#7e9eb8", width=2.8, shape="spline"),
             fill='tozeroy',
-            fillcolor='rgba(96, 165, 250, 0.12)'
+            fillcolor='rgba(126, 158, 184, 0.12)'
         ))
         fig_trend.add_trace(go.Scatter(
             x=monthly_df['year_month'],
             y=monthly_df['profit'],
             name="Net Profit ($)",
             mode="lines+markers",
-            line=dict(color="#34d399", width=2.4, shape="spline"),
+            line=dict(color="#8ebaa3", width=2.4, shape="spline"),
             yaxis="y2"
         ))
         fig_trend.update_layout(
@@ -754,7 +754,7 @@ with tab_overview:
                 overlaying="y",
                 side="right",
                 showgrid=False,
-                tickfont=dict(color="#34d399", size=10)
+                tickfont=dict(color="#8ebaa3", size=10)
             )
         )
         apply_bento_chart_theme(fig_trend, height=360)
@@ -774,9 +774,9 @@ with tab_overview:
             hole=0.62,
             color='segment',
             color_discrete_map={
-                'Consumer': '#60a5fa',
-                'Corporate': '#a78bfa',
-                'Home Office': '#38bdf8'
+                'Consumer': '#7e9eb8',
+                'Corporate': '#9fa8da',
+                'Home Office': '#b0a8a0'
             }
         )
         fig_seg.update_traces(
@@ -800,7 +800,7 @@ with tab_overview:
             y='sub_category',
             color='category',
             orientation='h',
-            color_discrete_sequence=['#60a5fa', '#a78bfa', '#34d399'],
+            color_discrete_sequence=['#7e9eb8', '#9fa8da', '#8ebaa3'],
             labels={'sales': 'Sales ($)', 'sub_category': 'Sub-Category', 'category': 'Category'}
         )
         apply_bento_chart_theme(fig_sub, height=420)
@@ -815,7 +815,7 @@ with tab_overview:
         sub_prof['margin'] = (sub_prof['profit'] / sub_prof['sales']) * 100
         sub_prof = sub_prof.sort_values('margin', ascending=True)
         
-        bar_colors = ['#f87171' if m < 0 else '#34d399' for m in sub_prof['margin']]
+        bar_colors = ['#d98274' if m < 0 else '#8ebaa3' for m in sub_prof['margin']]
         fig_m = go.Figure(go.Bar(
             x=sub_prof['margin'],
             y=sub_prof['sub_category'],
@@ -829,7 +829,7 @@ with tab_overview:
         st.plotly_chart(fig_m, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 2: GEOSPATIAL & REGIONAL
+# TAB 2: GEOSPATIAL & REGIONAL (SOFT PALETTE)
 # ----------------------------------------------------
 with tab_geo:
     us_state_to_code = {
@@ -863,7 +863,7 @@ with tab_geo:
             locationmode="USA-states",
             color='sales',
             scope="usa",
-            color_continuous_scale=[[0, '#0a0a0e'], [0.4, '#1d4ed8'], [1, '#60a5fa']],
+            color_continuous_scale=[[0, '#0a0a0e'], [0.4, '#364f6b'], [1, '#7e9eb8']],
             hover_name='state',
             hover_data={'sales': ':$,.0f', 'profit': ':$,.0f', 'profit_margin': ':.1f%'},
             labels={'sales': 'Revenue ($)', 'profit': 'Profit ($)', 'profit_margin': 'Margin'}
@@ -879,12 +879,12 @@ with tab_geo:
         st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:0.5rem;'>Top 5 Contributing States</p>", unsafe_allow_html=True)
         top_states = state_df.sort_values('sales', ascending=False).head(5)
         for _, r in top_states.iterrows():
-            margin_color = "#34d399" if r['profit_margin'] >= 10 else ("#f87171" if r['profit_margin'] < 0 else "#fbbf24")
+            margin_color = "#8ebaa3" if r['profit_margin'] >= 10 else ("#d98274" if r['profit_margin'] < 0 else "#d8b384")
             st.markdown(f"""
             <div style="background: #0e0e12; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px;">
                 <div style="display:flex; justify-content:space-between; font-weight:700; color:#ffffff; font-size: 0.9rem;">
                     <span>{r['state']}</span>
-                    <span style="color:#60a5fa;">${r['sales']:,.0f}</span>
+                    <span style="color:#7e9eb8;">${r['sales']:,.0f}</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#71717a; margin-top:4px;">
                     <span>Profit: ${r['profit']:,.0f}</span>
@@ -902,7 +902,7 @@ with tab_geo:
         fig_hm = px.imshow(
             pivot_r,
             text_auto="$,.0f",
-            color_continuous_scale=[[0, '#0c0c10'], [0.5, '#1e3a8a'], [1, '#60a5fa']],
+            color_continuous_scale=[[0, '#0c0c10'], [0.5, '#2c4257'], [1, '#7e9eb8']],
             aspect="auto",
             labels=dict(x="Segment", y="Region", color="Profit ($)")
         )
@@ -923,14 +923,14 @@ with tab_geo:
             y='sales',
             color='avg_days',
             text_auto='$,.0f',
-            color_continuous_scale=[[0, '#2563eb'], [1, '#06b6d4']],
+            color_continuous_scale=[[0, '#4b6584'], [1, '#7e9eb8']],
             labels={'sales': 'Sales ($)', 'ship_mode': 'Ship Mode', 'avg_days': 'Avg Days'}
         )
         apply_bento_chart_theme(fig_ship, height=330)
         st.plotly_chart(fig_ship, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 3: CUSTOMER RETENTION & RFM
+# TAB 3: CUSTOMER RETENTION & RFM (SOFT PALETTE)
 # ----------------------------------------------------
 with tab_customer:
     ref_date = filtered_df['order_date'].max()
@@ -959,9 +959,9 @@ with tab_customer:
             hole=0.55,
             color='Status',
             color_discrete_map={
-                'Active (<180d)': '#34d399',
-                'At Risk (180-365d)': '#fbbf24',
-                'Lost (>365d)': '#f87171'
+                'Active (<180d)': '#8ebaa3',
+                'At Risk (180-365d)': '#d8b384',
+                'Lost (>365d)': '#d98274'
             }
         )
         fig_c_pie.update_traces(textposition='inside', textinfo='percent+label')
@@ -978,9 +978,9 @@ with tab_customer:
             color='churn_risk',
             hover_name='customer_name',
             color_discrete_map={
-                'Active (<180d)': '#34d399',
-                'At Risk (180-365d)': '#fbbf24',
-                'Lost (>365d)': '#f87171'
+                'Active (<180d)': '#8ebaa3',
+                'At Risk (180-365d)': '#d8b384',
+                'Lost (>365d)': '#d98274'
             },
             labels={'recency': 'Days Since Last Transaction', 'monetary': 'Monetary Value ($)', 'churn_risk': 'Cohort'}
         )
@@ -997,15 +997,15 @@ with tab_customer:
         st.markdown(f"""
         <div style="display:flex; flex-direction:column; gap:8px;">
             <div style="background:#0e0e12; border-radius:10px; padding:12px;">
-                <div style="color:#34d399; font-weight:700; font-size:0.85rem;">Active (&lt;180d): {act} clients</div>
+                <div style="color:#8ebaa3; font-weight:700; font-size:0.85rem;">Active (&lt;180d): {act} clients</div>
                 <div style="color:#71717a; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% active purchasing base.</div>
             </div>
             <div style="background:#0e0e12; border-radius:10px; padding:12px;">
-                <div style="color:#fbbf24; font-weight:700; font-size:0.85rem;">At Risk (180-365d): {risk} clients</div>
+                <div style="color:#d8b384; font-weight:700; font-size:0.85rem;">At Risk (180-365d): {risk} clients</div>
                 <div style="color:#71717a; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6-12 months.</div>
             </div>
             <div style="background:#0e0e12; border-radius:10px; padding:12px;">
-                <div style="color:#f87171; font-weight:700; font-size:0.85rem;">Lost (&gt;365d): {lost} clients</div>
+                <div style="color:#d98274; font-weight:700; font-size:0.85rem;">Lost (&gt;365d): {lost} clients</div>
                 <div style="color:#71717a; font-size:0.75rem;">{(lost/len(cust_rfm)*100):.1f}% churned accounts.</div>
             </div>
         </div>
@@ -1023,7 +1023,7 @@ with tab_customer:
             y='customer_name',
             orientation='h',
             color='profit',
-            color_continuous_scale=[[0, '#064e3b'], [1, '#34d399']],
+            color_continuous_scale=[[0, '#1c2826'], [1, '#8ebaa3']],
             labels={'profit': 'Profit ($)', 'customer_name': 'Client'}
         )
         fig_t10.update_layout(yaxis=dict(autorange="reversed"))
@@ -1039,14 +1039,14 @@ with tab_customer:
             y='customer_name',
             orientation='h',
             color='profit',
-            color_continuous_scale=[[0, '#f87171'], [1, '#331111']],
+            color_continuous_scale=[[0, '#d98274'], [1, '#241a1a']],
             labels={'profit': 'Profit ($)', 'customer_name': 'Client'}
         )
         apply_bento_chart_theme(fig_b10, height=360)
         st.plotly_chart(fig_b10, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 4: PRODUCT & PRICING
+# TAB 4: PRODUCT & PRICING (SOFT PALETTE)
 # ----------------------------------------------------
 with tab_product:
     p1, p2 = st.columns(2)
@@ -1063,7 +1063,7 @@ with tab_product:
             y='product_name',
             orientation='h',
             color='profit',
-            color_continuous_scale=[[0, '#1e3a8a'], [1, '#60a5fa']],
+            color_continuous_scale=[[0, '#2d4059'], [1, '#7e9eb8']],
             labels={'sales': 'Sales ($)', 'product_name': 'SKU', 'profit': 'Profit ($)'}
         )
         fig_tp.update_layout(yaxis=dict(autorange="reversed"))
@@ -1081,14 +1081,14 @@ with tab_product:
             size='sales',
             hover_name='product_name',
             labels={'discount': 'Discount (0.0 – 0.8)', 'profit_margin': 'Margin %', 'category': 'Category'},
-            color_discrete_sequence=['#60a5fa', '#a78bfa', '#34d399']
+            color_discrete_sequence=['#7e9eb8', '#9fa8da', '#8ebaa3']
         )
-        fig_disc.add_hline(y=0, line_dash="dash", line_color="#f87171", opacity=0.8)
+        fig_disc.add_hline(y=0, line_dash="dash", line_color="#d98274", opacity=0.8)
         apply_bento_chart_theme(fig_disc, height=400)
         st.plotly_chart(fig_disc, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 5: STRATEGIC ROI & WHAT-IF SIMULATOR
+# TAB 5: STRATEGIC ROI & WHAT-IF SIMULATOR (SOFT PALETTE)
 # ----------------------------------------------------
 with tab_strategy:
     st.markdown("<p style='font-size:1.1rem; font-weight:800; color:#ffffff; margin-bottom:0.2rem;'>Executive Strategic Recommendations & ROI Modeling</p>", unsafe_allow_html=True)
@@ -1099,7 +1099,7 @@ with tab_strategy:
     with r1:
         st.markdown("""
         <div style="background:#0e0e12; border-radius:14px; padding:18px; height:100%;">
-            <div style="color:#60a5fa; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
+            <div style="color:#7e9eb8; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
                 PILLAR 01 — PRICING & DISCOUNTS
             </div>
             <div style="color:#ffffff; font-weight:800; font-size:1.05rem; margin-bottom:8px;">
@@ -1108,7 +1108,7 @@ with tab_strategy:
             <div style="font-size:0.8rem; color:#94a3b8; line-height:1.5; margin-bottom:12px;">
                 Transactions discounted above 20% account for <b>84.3% of all gross losses</b> ($28K+ deficit). Enforcing strict approval gates for discounts >15% will immediately salvage margins without dampening volume.
             </div>
-            <div style="background:rgba(96, 165, 250, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#93c5fd; font-weight:700;">
+            <div style="background:rgba(126, 158, 184, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#7e9eb8; font-weight:700;">
                 Estimated Annual Impact: +$18,500 Net Profit
             </div>
         </div>
@@ -1117,7 +1117,7 @@ with tab_strategy:
     with r2:
         st.markdown("""
         <div style="background:#0e0e12; border-radius:14px; padding:18px; height:100%;">
-            <div style="color:#34d399; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
+            <div style="color:#8ebaa3; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
                 PILLAR 02 — CLIENT RETENTION
             </div>
             <div style="color:#ffffff; font-weight:800; font-size:1.05rem; margin-bottom:8px;">
@@ -1126,7 +1126,7 @@ with tab_strategy:
             <div style="font-size:0.8rem; color:#94a3b8; line-height:1.5; margin-bottom:12px;">
                 Identified <b>45 enterprise corporate clients</b> currently at churn risk (180-365 days inactive) representing $85K in lifetime spend. Assigning dedicated account executives will secure recurring revenue.
             </div>
-            <div style="background:rgba(52, 211, 153, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#6ee7b7; font-weight:700;">
+            <div style="background:rgba(142, 186, 163, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#8ebaa3; font-weight:700;">
                 Estimated Annual Impact: $65,000 Churn Protected
             </div>
         </div>
@@ -1135,7 +1135,7 @@ with tab_strategy:
     with r3:
         st.markdown("""
         <div style="background:#0e0e12; border-radius:14px; padding:18px; height:100%;">
-            <div style="color:#a78bfa; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
+            <div style="color:#9fa8da; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">
                 PILLAR 03 — REGIONAL LOGISTICS
             </div>
             <div style="color:#ffffff; font-weight:800; font-size:1.05rem; margin-bottom:8px;">
@@ -1144,7 +1144,7 @@ with tab_strategy:
             <div style="font-size:0.8rem; color:#94a3b8; line-height:1.5; margin-bottom:12px;">
                 Central and East regions suffer negative profitability in Texas (-$25K profit) and Ohio (-$16K profit) due to unmanaged standard freight absorption on low-margin SKUs.
             </div>
-            <div style="background:rgba(167, 139, 250, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#c4b5fd; font-weight:700;">
+            <div style="background:rgba(159, 168, 218, 0.12); padding:8px 12px; border-radius:8px; font-size:0.76rem; color:#9fa8da; font-weight:700;">
                 Estimated Annual Impact: +$12,000 Logistics Savings
             </div>
         </div>
@@ -1158,7 +1158,7 @@ with tab_strategy:
 
     sim_left, sim_right = st.columns([5, 7])
     with sim_left:
-        st.markdown("<p style='font-size:0.85rem; font-weight:700; color:#60a5fa; margin-bottom:0.4rem;'>1. Discount Ceiling Policy</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.85rem; font-weight:700; color:#7e9eb8; margin-bottom:0.4rem;'>1. Discount Ceiling Policy</p>", unsafe_allow_html=True)
         max_discount_allowed = st.slider(
             "Cap Maximum Transaction Discount",
             min_value=0.10,
@@ -1168,7 +1168,7 @@ with tab_strategy:
             format="%.0f%%"
         )
         
-        st.markdown("<p style='font-size:0.85rem; font-weight:700; color:#34d399; margin-bottom:0.4rem;'>2. Growth in High-Margin Tech SKUs</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.85rem; font-weight:700; color:#8ebaa3; margin-bottom:0.4rem;'>2. Growth in High-Margin Tech SKUs</p>", unsafe_allow_html=True)
         tech_growth = st.slider(
             "Projected Volume Expansion in Technology",
             min_value=0,
@@ -1178,7 +1178,7 @@ with tab_strategy:
             format="+%d%%"
         )
         
-        st.markdown("<p style='font-size:0.85rem; font-weight:700; color:#a78bfa; margin-bottom:0.4rem;'>3. At-Risk Account Retention Success</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.85rem; font-weight:700; color:#9fa8da; margin-bottom:0.4rem;'>3. At-Risk Account Retention Success</p>", unsafe_allow_html=True)
         retention_rate = st.slider(
             "Target Win-Back Rate for 'At Risk' Accounts",
             min_value=0,
@@ -1215,13 +1215,13 @@ with tab_strategy:
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:14px;">
             <div style="background:#0e0e12; border-radius:12px; padding:14px;">
                 <div style="font-size:0.72rem; color:#71717a; font-weight:700; text-transform:uppercase;">Projected Incremental Gain</div>
-                <div style="font-size:1.6rem; font-weight:800; color:#34d399; margin-top:2px;">+${total_profit_gain:,.0f}</div>
-                <div style="font-size:0.74rem; color:#6ee7b7; margin-top:4px;">Profit uplift above baseline</div>
+                <div style="font-size:1.6rem; font-weight:800; color:#8ebaa3; margin-top:2px;">+${total_profit_gain:,.0f}</div>
+                <div style="font-size:0.74rem; color:#8ebaa3; margin-top:4px;">Profit uplift above baseline</div>
             </div>
             <div style="background:#0e0e12; border-radius:12px; padding:14px;">
                 <div style="font-size:0.72rem; color:#71717a; font-weight:700; text-transform:uppercase;">Simulated Operating Profit</div>
-                <div style="font-size:1.6rem; font-weight:800; color:#60a5fa; margin-top:2px;">${simulated_total_profit:,.0f}</div>
-                <div style="font-size:0.74rem; color:#93c5fd; margin-top:4px;">Margin: {profit_margin:.1f}% ➔ <b>{simulated_margin:.1f}%</b></div>
+                <div style="font-size:1.6rem; font-weight:800; color:#7e9eb8; margin-top:2px;">${simulated_total_profit:,.0f}</div>
+                <div style="font-size:0.74rem; color:#7e9eb8; margin-top:4px;">Margin: {profit_margin:.1f}% ➔ <b>{simulated_margin:.1f}%</b></div>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1233,9 +1233,9 @@ with tab_strategy:
             x=["Base Profit", "Discount Policy", "Tech Expansion", "Client Retention", "Simulated Profit"],
             y=[total_profit, profit_leakage_recovered, tech_profit_gain, retention_profit_gain, simulated_total_profit],
             connector={"line": {"color": "rgba(255,255,255,0.15)"}},
-            decreasing={"marker": {"color": "#f87171"}},
-            increasing={"marker": {"color": "#34d399"}},
-            totals={"marker": {"color": "#60a5fa"}},
+            decreasing={"marker": {"color": "#d98274"}},
+            increasing={"marker": {"color": "#8ebaa3"}},
+            totals={"marker": {"color": "#7e9eb8"}},
             textposition="outside",
             text=[f"${total_profit:,.0f}", f"+${profit_leakage_recovered:,.0f}", f"+${tech_profit_gain:,.0f}", f"+${retention_profit_gain:,.0f}", f"${simulated_total_profit:,.0f}"]
         ))
