@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Pure Matte Black (Borderless), Concept 1 Bento Sparklines
+# Custom High-End CSS: Satoshi Font, Pure Matte Black (Borderless), Concept 2 Hero Bento
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -81,7 +81,7 @@ st.markdown("""
     }
 
     /* =========================================
-       CONCEPT 1: SPARKLINE BENTO KPI CARDS
+       CONCEPT 2: ASYMMETRIC HERO BENTO
        ========================================= */
 
     /* Top Navigation Header */
@@ -130,105 +130,130 @@ st.markdown("""
         box-shadow: 0 0 6px #68b69e;
     }
 
-    /* Bento Grid KPI Container (Concept 1) */
-    .bento-kpi-container {
+    /* Asymmetric Bento Container */
+    .hero-bento-grid {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 1.8fr 1fr 1fr 1fr;
         gap: 1rem;
         margin-bottom: 1.4rem;
     }
-    .bento-card-c1 {
+
+    /* Left Hero Card */
+    .hero-card {
         background: #0e0e12;
         border: none !important;
         border-radius: 18px;
-        padding: 1.25rem 1.3rem 1rem 1.3rem;
+        padding: 1.4rem 1.6rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         position: relative;
-        overflow: hidden;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+        transition: all 0.2s ease;
     }
-    .bento-card-c1:hover {
-        transform: translateY(-3px);
+    .hero-card:hover {
         background: #13131a;
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+        transform: translateY(-2px);
     }
-
-    .c1-header {
+    .hero-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0.75rem;
+        margin-bottom: 1rem;
     }
-    .c1-label {
-        font-size: 0.74rem;
+    .hero-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #a1a1aa;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+    .hero-split {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1.5rem;
+        align-items: flex-end;
+    }
+    .hero-num-big {
+        font-size: 2.15rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        margin-top: 4px;
+        margin-bottom: 6px;
+    }
+    .hero-num-sub {
+        font-size: 1.65rem;
+        font-weight: 800;
+        color: #68b69e;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        margin-top: 4px;
+        margin-bottom: 6px;
+    }
+
+    /* Secondary Compact Bento Cards */
+    .sub-card {
+        background: #0e0e12;
+        border: none !important;
+        border-radius: 18px;
+        padding: 1.3rem 1.4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+        transition: all 0.2s ease;
+    }
+    .sub-card:hover {
+        background: #13131a;
+        transform: translateY(-2px);
+    }
+    .sub-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.8rem;
+    }
+    .sub-label {
+        font-size: 0.72rem;
         font-weight: 700;
         color: #71717a;
         text-transform: uppercase;
         letter-spacing: 0.06em;
     }
-    .c1-icon-badge {
-        width: 32px;
-        height: 32px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .c1-body {
-        margin-bottom: 0.8rem;
-    }
-    .c1-value {
-        font-size: 1.85rem;
+    .sub-val {
+        font-size: 1.75rem;
         font-weight: 800;
         color: #ffffff;
-        letter-spacing: -0.03em;
+        letter-spacing: -0.02em;
         line-height: 1.1;
-        margin-bottom: 0.4rem;
-        font-feature-settings: "tnum";
+        margin-bottom: 0.6rem;
     }
-    .c1-meta {
-        display: flex;
-        align-items: center;
-        gap: 6px;
+
+    .pill-tokyo-mint {
+        background: rgba(104, 182, 158, 0.15);
+        color: #68b69e;
+        padding: 3px 8px;
+        border-radius: 6px;
         font-size: 0.74rem;
         font-weight: 600;
     }
-    .pill-delta-up {
-        background: rgba(104, 182, 158, 0.15);
-        color: #68b69e;
-        padding: 2px 7px;
+    .pill-tokyo-pink {
+        background: rgba(212, 139, 161, 0.15);
+        color: #d48ba1;
+        padding: 3px 8px;
         border-radius: 6px;
-        display: inline-flex;
-        align-items: center;
-        gap: 3px;
-        font-weight: 700;
-    }
-    .pill-delta-down {
-        background: rgba(212, 106, 106, 0.15);
-        color: #d46a6a;
-        padding: 2px 7px;
-        border-radius: 6px;
-        display: inline-flex;
-        align-items: center;
-        gap: 3px;
-        font-weight: 700;
-    }
-    .pill-delta-neutral {
-        background: rgba(155, 134, 189, 0.15);
-        color: #9b86bd;
-        padding: 2px 7px;
-        border-radius: 6px;
+        font-size: 0.74rem;
         font-weight: 600;
     }
-
-    .c1-sparkline-wrap {
-        width: 100%;
-        height: 42px;
-        margin-top: 0.2rem;
+    .pill-tokyo-purple {
+        background: rgba(155, 134, 189, 0.15);
+        color: #9b86bd;
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 0.74rem;
+        font-weight: 600;
     }
 
     /* Minimalist Insight Banner */
@@ -389,49 +414,6 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
-# ==========================================
-# HELPER: SVG SPARKLINE GENERATOR
-# ==========================================
-def generate_svg_sparkline(values, stroke_color="#d48ba1", fill_color="rgba(212,139,161,0.15)", width=220, height=42):
-    if len(values) < 2:
-        return ""
-    
-    val_min = min(values)
-    val_max = max(values)
-    val_range = (val_max - val_min) if val_max > val_min else 1.0
-    
-    pts = []
-    step_x = width / (len(values) - 1)
-    
-    for i, v in enumerate(values):
-        x = i * step_x
-        # Invert y because SVG y goes downwards
-        y = height - 5 - ((v - val_min) / val_range) * (height - 12)
-        pts.append((x, y))
-        
-    path_d = f"M {pts[0][0]:.1f} {pts[0][1]:.1f}"
-    for x, y in pts[1:]:
-        path_d += f" L {x:.1f} {y:.1f}"
-        
-    fill_d = f"{path_d} L {width:.1f} {height:.1f} L 0 {height:.1f} Z"
-    
-    last_x, last_y = pts[-1]
-    
-    svg = f"""
-    <svg width="100%" height="{height}" viewBox="0 0 {width} {height}" preserveAspectRatio="none" style="overflow:visible; display:block;">
-        <defs>
-            <linearGradient id="grad_{stroke_color.replace('#','')}" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="{stroke_color}" stop-opacity="0.25"/>
-                <stop offset="100%" stop-color="{stroke_color}" stop-opacity="0.0"/>
-            </linearGradient>
-        </defs>
-        <path d="{fill_d}" fill="url(#grad_{stroke_color.replace('#','')})" />
-        <path d="{path_d}" fill="none" stroke="{stroke_color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="3" fill="{stroke_color}" />
-    </svg>
-    """
-    return svg
 
 # ==========================================
 # PLOTLY COLOR THEME ENGINE
@@ -682,7 +664,7 @@ if filtered_df.empty:
     st.stop()
 
 # ==========================================
-# CONCEPT 1: BENTO KPI CARDS WITH INLINE SPARKLINES & GROWTH
+# CONCEPT 2: ASYMMETRIC HERO BENTO GRID
 # ==========================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -691,154 +673,63 @@ total_orders = filtered_df['order_id'].nunique()
 total_customers = filtered_df['customer_id'].nunique()
 avg_order_value = (total_sales / total_orders) if total_orders > 0 else 0
 
-# Compute monthly trend series for sparklines
-monthly_trend = filtered_df.groupby('year_month').agg(
-    sales=('sales', 'sum'),
-    profit=('profit', 'sum'),
-    orders=('order_id', 'nunique'),
-    customers=('customer_id', 'nunique')
-).reset_index().sort_values('year_month')
-
-monthly_trend['aov'] = monthly_trend['sales'] / monthly_trend['orders']
-
-# Generate sparkline SVGs
-sales_sparkline = generate_svg_sparkline(monthly_trend['sales'].tolist(), stroke_color="#d48ba1")
-profit_sparkline = generate_svg_sparkline(monthly_trend['profit'].tolist(), stroke_color="#68b69e")
-orders_sparkline = generate_svg_sparkline(monthly_trend['orders'].tolist(), stroke_color="#9b86bd")
-cust_sparkline = generate_svg_sparkline(monthly_trend['customers'].tolist(), stroke_color="#68b69e")
-aov_sparkline = generate_svg_sparkline(monthly_trend['aov'].tolist(), stroke_color="#d48ba1")
-
-# Calculate Period-over-Period trend delta (first half vs second half of selection)
-half_idx = len(monthly_trend) // 2
-if half_idx > 0:
-    sales_h1 = monthly_trend['sales'].iloc[:half_idx].mean()
-    sales_h2 = monthly_trend['sales'].iloc[half_idx:].mean()
-    sales_delta = ((sales_h2 - sales_h1) / sales_h1 * 100) if sales_h1 > 0 else 0
-
-    profit_h1 = monthly_trend['profit'].iloc[:half_idx].mean()
-    profit_h2 = monthly_trend['profit'].iloc[half_idx:].mean()
-    profit_delta = ((profit_h2 - profit_h1) / profit_h1 * 100) if profit_h1 > 0 else 0
-
-    orders_h1 = monthly_trend['orders'].iloc[:half_idx].mean()
-    orders_h2 = monthly_trend['orders'].iloc[half_idx:].mean()
-    orders_delta = ((orders_h2 - orders_h1) / orders_h1 * 100) if orders_h1 > 0 else 0
-else:
-    sales_delta, profit_delta, orders_delta = 14.8, 12.2, 8.5
-
-sales_pill = f'<span class="pill-delta-up">▲ +{sales_delta:.1f}%</span>' if sales_delta >= 0 else f'<span class="pill-delta-down">▼ {sales_delta:.1f}%</span>'
-profit_pill = f'<span class="pill-delta-up">▲ +{profit_delta:.1f}%</span>' if profit_delta >= 0 else f'<span class="pill-delta-down">▼ {profit_delta:.1f}%</span>'
-orders_pill = f'<span class="pill-delta-up">▲ +{orders_delta:.1f}%</span>' if orders_delta >= 0 else f'<span class="pill-delta-down">▼ {orders_delta:.1f}%</span>'
-margin_pill = f'<span class="pill-tokyo-mint">Margin {profit_margin:.1f}%</span>' if profit_margin >= 10 else f'<span class="pill-tokyo-crimson">Margin {profit_margin:.1f}%</span>'
-
 st.markdown(f"""
-<div class="bento-kpi-container">
-    <!-- Card 1: Gross Revenue -->
-    <div class="bento-card-c1">
-        <div>
-            <div class="c1-header">
-                <span class="c1-label">Gross Revenue</span>
-                <div class="c1-icon-badge" style="background: rgba(212, 139, 161, 0.12);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d48ba1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                </div>
-            </div>
-            <div class="c1-body">
-                <div class="c1-value">${total_sales:,.0f}</div>
-                <div class="c1-meta">
-                    {sales_pill}
-                    <span style="color:#71717a; font-size:0.72rem;">vs prior period</span>
-                </div>
+<div class="hero-bento-grid">
+    <!-- 1. Left Hero Financial Command Card (Wide) -->
+    <div class="hero-card">
+        <div class="hero-top">
+            <span class="hero-tag">Financial Trajectory & Bottom-Line</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <span class="pill-tokyo-mint">Operating Margin {profit_margin:.1f}%</span>
             </div>
         </div>
-        <div class="c1-sparkline-wrap">
-            {sales_sparkline}
-        </div>
-    </div>
-
-    <!-- Card 2: Net Profit -->
-    <div class="bento-card-c1">
-        <div>
-            <div class="c1-header">
-                <span class="c1-label">Net Profit</span>
-                <div class="c1-icon-badge" style="background: rgba(104, 182, 158, 0.12);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                </div>
+        <div class="hero-split">
+            <div>
+                <div style="font-size:0.72rem; color:#71717a; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;">Gross Revenue</div>
+                <div class="hero-num-big">${total_sales:,.0f}</div>
+                <div style="font-size:0.74rem; color:#94a3b8; font-weight:500;">Total Commercial Inflow</div>
             </div>
-            <div class="c1-body">
-                <div class="c1-value">${total_profit:,.0f}</div>
-                <div class="c1-meta">
-                    {margin_pill}
-                    {profit_pill}
-                </div>
+            <div>
+                <div style="font-size:0.72rem; color:#68b69e; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;">Net Profit</div>
+                <div class="hero-num-sub">${total_profit:,.0f}</div>
+                <div style="font-size:0.74rem; color:#68b69e; font-weight:500;">Net Contribution</div>
             </div>
-        </div>
-        <div class="c1-sparkline-wrap">
-            {profit_sparkline}
         </div>
     </div>
 
-    <!-- Card 3: Total Orders -->
-    <div class="bento-card-c1">
-        <div>
-            <div class="c1-header">
-                <span class="c1-label">Total Orders</span>
-                <div class="c1-icon-badge" style="background: rgba(155, 134, 189, 0.12);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9b86bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                </div>
-            </div>
-            <div class="c1-body">
-                <div class="c1-value">{total_orders:,}</div>
-                <div class="c1-meta">
-                    {orders_pill}
-                    <span style="color:#71717a; font-size:0.72rem;">transactions</span>
-                </div>
-            </div>
+    <!-- 2. Total Orders -->
+    <div class="sub-card">
+        <div class="sub-top">
+            <span class="sub-label">Orders</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9b86bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
         </div>
-        <div class="c1-sparkline-wrap">
-            {orders_sparkline}
+        <div>
+            <div class="sub-val">{total_orders:,}</div>
+            <span class="pill-tokyo-purple">Unique Orders</span>
         </div>
     </div>
 
-    <!-- Card 4: Active Clients -->
-    <div class="bento-card-c1">
-        <div>
-            <div class="c1-header">
-                <span class="c1-label">Active Clients</span>
-                <div class="c1-icon-badge" style="background: rgba(104, 182, 158, 0.12);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                </div>
-            </div>
-            <div class="c1-body">
-                <div class="c1-value">{total_customers:,}</div>
-                <div class="c1-meta">
-                    <span class="pill-tokyo-mint">Active Base</span>
-                    <span style="color:#71717a; font-size:0.72rem;">unique accounts</span>
-                </div>
-            </div>
+    <!-- 3. Active Clients -->
+    <div class="sub-card">
+        <div class="sub-top">
+            <span class="sub-label">Clients</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
-        <div class="c1-sparkline-wrap">
-            {cust_sparkline}
+        <div>
+            <div class="sub-val">{total_customers:,}</div>
+            <span class="pill-tokyo-mint">Active Base</span>
         </div>
     </div>
 
-    <!-- Card 5: Avg Order Value -->
-    <div class="bento-card-c1">
-        <div>
-            <div class="c1-header">
-                <span class="c1-label">Avg Order Value</span>
-                <div class="c1-icon-badge" style="background: rgba(212, 139, 161, 0.12);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d48ba1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                </div>
-            </div>
-            <div class="c1-body">
-                <div class="c1-value">${avg_order_value:,.1f}</div>
-                <div class="c1-meta">
-                    <span class="pill-tokyo-pink">AOV / Basket</span>
-                    <span style="color:#71717a; font-size:0.72rem;">per ticket</span>
-                </div>
-            </div>
+    <!-- 4. Avg Order Value -->
+    <div class="sub-card">
+        <div class="sub-top">
+            <span class="sub-label">Basket Size</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d48ba1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
         </div>
-        <div class="c1-sparkline-wrap">
-            {aov_sparkline}
+        <div>
+            <div class="sub-val">${avg_order_value:,.1f}</div>
+            <span class="pill-tokyo-pink">AOV / Ticket</span>
         </div>
     </div>
 </div>
