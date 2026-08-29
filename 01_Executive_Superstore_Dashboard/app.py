@@ -4,8 +4,18 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
+import base64
 import io
 import os
+
+def get_base64_image(image_path):
+    try:
+        if os.path.exists(image_path):
+            with open(image_path, "rb") as img_file:
+                return base64.b64encode(img_file.read()).decode("utf-8")
+    except Exception:
+        return None
+    return None
 
 # ==========================================
 # PAGE CONFIGURATION & PURE BLACK THEME
@@ -519,12 +529,13 @@ with st.sidebar:
     )
 
     # Analyst Profile Card
-    st.markdown("""
+    avatar_b64 = get_base64_image("01_Executive_Superstore_Dashboard/afasfsff.png") or get_base64_image("afasfsff.png") or get_base64_image("../afasfsff.png")
+    avatar_html = f'<img src="data:image/png;base64,{avatar_b64}" style="width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid #d48ba1;" />' if avatar_b64 else '<div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg, #d48ba1, #9b86bd); display:flex; align-items:center; justify-content:center; font-weight:800; color:#ffffff; font-size:0.85rem;">AM</div>'
+
+    st.markdown(f"""
     <div class="profile-card">
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, #d48ba1, #9b86bd); display:flex; align-items:center; justify-content:center; font-weight:800; color:#ffffff; font-size:0.85rem;">
-                AM
-            </div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+            {avatar_html}
             <div>
                 <div class="profile-name">Nur Alief Maulana</div>
                 <div class="profile-role">Data Analyst | BI Specialist</div>
