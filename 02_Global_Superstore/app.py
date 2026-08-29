@@ -635,7 +635,7 @@ if filtered_df.empty:
     st.stop()
 
 # ==============================================================================
-# GLOBAL BENTO KPI CARDS (CLEAN & ADAPTIVE)
+# GLOBAL BENTO KPI CARDS (3x2 GRID: SPACIOUS & CLEAN)
 # ==============================================================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -647,88 +647,100 @@ total_countries = filtered_df['country'].nunique() if 'country' in filtered_df.c
 
 margin_pill = "pill-tokyo-mint" if profit_margin >= 10 else ("pill-tokyo-crimson" if profit_margin < 0 else "pill-tokyo-ochre")
 
-k1, k2, k3, k4, k5, k6 = st.columns(6)
+# Row 1: Core Financials (3 Columns)
+r1_c1, r1_c2, r1_c3 = st.columns(3)
 
-with k1:
+with r1_c1:
     st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Gross Revenue</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d48ba1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d48ba1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
         </div>
         <div class="bento-value">${total_sales:,.0f}</div>
         <div class="bento-footer">
             <span class="pill-tokyo-pink">Global Turnover</span>
+            <span style="font-size:0.75rem; color:#71717a;">Total volume billed</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-with k2:
+with r1_c2:
     st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Net Profit</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
         </div>
-        <div class="bento-value">${total_profit:,.0f}</div>
+        <div class="bento-value" style="color:#68b69e;">${total_profit:,.0f}</div>
         <div class="bento-footer">
             <span class="{margin_pill}">Margin {profit_margin:.1f}%</span>
+            <span style="font-size:0.75rem; color:#71717a;">Operating surplus</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-with k3:
+with r1_c3:
     st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Incurred Losses</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d46a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d46a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
         </div>
         <div class="bento-value" style="color:#d46a6a;">${abs(total_loss):,.0f}</div>
         <div class="bento-footer">
             <span class="pill-tokyo-crimson">Leakage Deficit</span>
+            <span style="font-size:0.75rem; color:#71717a;">Unmanaged discounts</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-with k4:
+st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
+
+# Row 2: Operational Scale (3 Columns)
+r2_c1, r2_c2, r2_c3 = st.columns(3)
+
+with r2_c1:
     st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Orders</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9b86bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9b86bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
         </div>
         <div class="bento-value">{total_orders:,}</div>
         <div class="bento-footer">
             <span class="pill-tokyo-purple">Transactions</span>
+            <span style="font-size:0.75rem; color:#71717a;">Unique order records</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-with k5:
+with r2_c2:
     st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Client Base</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
         <div class="bento-value">{total_customers:,}</div>
         <div class="bento-footer">
             <span class="pill-tokyo-mint">Active Accounts</span>
+            <span style="font-size:0.75rem; color:#71717a;">Corporate & Consumer</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-with k6:
+with r2_c3:
     st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Presence</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d9a86c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d9a86c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
         </div>
         <div class="bento-value">{total_countries}</div>
         <div class="bento-footer">
-            <span class="pill-tokyo-ochre">Countries</span>
+            <span class="pill-tokyo-ochre">Countries Covered</span>
+            <span style="font-size:0.75rem; color:#71717a;">Worldwide footprint</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
