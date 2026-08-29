@@ -17,14 +17,14 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Lucide Monochromatic SVGs, Borderless Pure Black UI
+# Custom High-End CSS: Satoshi Font, Explicit Visible Sidebar Arrow, Borderless Pure Black UI
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
 
-    /* Global Typography & Deep Black Canvas */
-    * {
-        font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    /* Global Typography - Target text specifically to avoid overriding Streamlit Icon fonts */
+    html, body, .stApp, p, span, div, h1, h2, h3, h4, h5, h6, input, select, textarea, .stMarkdown {
+        font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
     .stApp {
@@ -44,6 +44,38 @@ st.markdown("""
     section[data-testid="stSidebar"] {
         background-color: #0c0c10 !important;
         border-right: none !important;
+    }
+
+    /* FIX: Ensure Sidebar Collapse / Expand Arrow Button is clearly visible & styled */
+    [data-testid="stSidebarCollapseButton"],
+    [data-testid="baseButton-headerNoPadding"],
+    [data-testid="stSidebarHeader"] button,
+    [data-testid="stHeader"] button,
+    button[kind="header"] {
+        color: #f4f4f5 !important;
+        fill: #f4f4f5 !important;
+        background-color: transparent !important;
+        opacity: 0.9 !important;
+        visibility: visible !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    [data-testid="stSidebarCollapseButton"]:hover,
+    [data-testid="baseButton-headerNoPadding"]:hover,
+    [data-testid="stHeader"] button:hover {
+        opacity: 1 !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        border-radius: 8px !important;
+    }
+    [data-testid="stSidebarCollapseButton"] svg,
+    [data-testid="stSidebarHeader"] svg,
+    [data-testid="stHeader"] svg {
+        stroke: #f4f4f5 !important;
+        fill: #f4f4f5 !important;
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+        visibility: visible !important;
     }
 
     /* Top Executive Navigation Header - Minimalist */
