@@ -1,0 +1,16 @@
+# Python virtual env
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Local CV Documents (Private)
+*.docx
+*.pdf
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
