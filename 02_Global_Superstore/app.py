@@ -20,339 +20,324 @@ st.set_page_config(
 # Custom High-End CSS: Satoshi Typography, Pitch Black Canvas (#000000), 100% Borderless Bento Grid
 st.markdown("""
 <style>
-    @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
 
-    /* Global Typography */
-    html, body, .stApp, p, span, div, h1, h2, h3, h4, h5, h6, input, select, textarea, button, .stMarkdown {
-        font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-    
-    /* Pitch Black Canvas */
-    .stApp {
-        background-color: #000000 !important;
-        background-image: none !important;
-        color: #ffffff;
-    }
+html, body, .stApp, p, span, div, h1, h2, h3, h4, h5, h6, input, select, textarea, button, .stMarkdown {
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-    .main .block-container {
-        padding-top: 1.2rem;
-        padding-bottom: 2.5rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        max-width: 98% !important;
-    }
+.stApp {
+    background-color: #000000 !important;
+    background-image: none !important;
+    color: #ffffff;
+}
 
-    /* Standard Docked Matte Sidebar */
-    section[data-testid="stSidebar"] {
-        background-color: #08080a !important;
-        border-right: none !important;
-    }
+.main .block-container {
+    padding-top: 1.2rem;
+    padding-bottom: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 98% !important;
+}
 
-    /* Sidebar Collapse / Header Buttons */
-    [data-testid="stSidebarCollapseButton"],
-    [data-testid="baseButton-headerNoPadding"],
-    [data-testid="stSidebarHeader"] button,
-    [data-testid="stHeader"] button,
-    button[kind="header"] {
-        color: #ffffff !important;
-        fill: #ffffff !important;
-        background-color: transparent !important;
-        opacity: 0.9 !important;
-        visibility: visible !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    [data-testid="stSidebarCollapseButton"]:hover,
-    [data-testid="baseButton-headerNoPadding"]:hover,
-    [data-testid="stHeader"] button:hover {
-        opacity: 1 !important;
-        background-color: rgba(255, 255, 255, 0.08) !important;
-        border-radius: 8px !important;
-    }
-    [data-testid="stSidebarCollapseButton"] svg,
-    [data-testid="stSidebarHeader"] svg,
-    [data-testid="stHeader"] svg {
-        stroke: #ffffff !important;
-        fill: #ffffff !important;
-        width: 1.25rem !important;
-        height: 1.25rem !important;
-        visibility: visible !important;
-    }
+section[data-testid="stSidebar"] {
+    background-color: #08080a !important;
+    border-right: none !important;
+}
 
-    /* Top Navigation Header */
-    .bento-nav-card {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.4rem 1.8rem;
-        background: #0e0e12;
-        border: none !important;
-        border-radius: 16px;
-        margin-bottom: 1.4rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-    }
-    .brand-title {
-        font-size: 1.55rem;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        color: #ffffff;
-        margin: 0;
-    }
-    .brand-subtitle {
-        font-size: 0.82rem;
-        color: #94a3b8;
-        font-weight: 500;
-        margin-top: 3px;
-        letter-spacing: 0.01em;
-    }
-    .live-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: #18181f;
-        border: none !important;
-        color: #d48ba1;
-        padding: 6px 14px;
-        border-radius: 8px;
-        font-size: 0.76rem;
-        font-weight: 600;
-    }
-    .pulse-dot {
-        width: 6px;
-        height: 6px;
-        background-color: #68b69e;
-        border-radius: 50%;
-        box-shadow: 0 0 6px #68b69e;
-    }
+[data-testid="stSidebarCollapseButton"],
+[data-testid="baseButton-headerNoPadding"],
+[data-testid="stSidebarHeader"] button,
+[data-testid="stHeader"] button,
+button[kind="header"] {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    background-color: transparent !important;
+    opacity: 0.9 !important;
+    visibility: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+[data-testid="stSidebarCollapseButton"]:hover,
+[data-testid="baseButton-headerNoPadding"]:hover,
+[data-testid="stHeader"] button:hover {
+    opacity: 1 !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+}
+[data-testid="stSidebarCollapseButton"] svg,
+[data-testid="stSidebarHeader"] svg,
+[data-testid="stHeader"] svg {
+    stroke: #ffffff !important;
+    fill: #ffffff !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    visibility: visible !important;
+}
 
-    /* 6-Column Bento KPI Container */
-    .bento-kpi-container {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 0.9rem;
-        margin-bottom: 1.4rem;
-    }
-    .bento-card {
-        background: #0e0e12;
-        border: none !important;
-        border-radius: 16px;
-        padding: 1.2rem 1.3rem;
-        transition: all 0.2s ease;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-    }
-    .bento-card:hover {
-        transform: translateY(-2px);
-        background: #14141a;
-    }
-    .bento-card-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.5rem;
-    }
-    .bento-label {
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: #71717a;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-    }
-    .bento-value {
-        font-size: 1.65rem;
-        font-weight: 800;
-        color: #ffffff;
-        letter-spacing: -0.03em;
-        line-height: 1.1;
-        margin-bottom: 0.4rem;
-        font-feature-settings: "tnum";
-    }
-    .bento-footer {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.74rem;
-        font-weight: 600;
-    }
+.bento-nav-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 1.8rem;
+    background: #0e0e12;
+    border: none !important;
+    border-radius: 16px;
+    margin-bottom: 1.4rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+.brand-title {
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin: 0;
+}
+.brand-subtitle {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-top: 3px;
+    letter-spacing: 0.01em;
+}
+.live-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #18181f;
+    border: none !important;
+    color: #d48ba1;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #68b69e;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #68b69e;
+}
 
-    /* Muted Tokyo Pastel Color Pills */
-    .pill-tokyo-mint {
-        background: rgba(104, 182, 158, 0.15);
-        color: #68b69e;
-        padding: 3px 8px;
-        border-radius: 6px;
-    }
-    .pill-tokyo-pink {
-        background: rgba(212, 139, 161, 0.15);
-        color: #d48ba1;
-        padding: 3px 8px;
-        border-radius: 6px;
-    }
-    .pill-tokyo-crimson {
-        background: rgba(212, 106, 106, 0.15);
-        color: #d46a6a;
-        padding: 3px 8px;
-        border-radius: 6px;
-    }
-    .pill-tokyo-purple {
-        background: rgba(155, 134, 189, 0.15);
-        color: #9b86bd;
-        padding: 3px 8px;
-        border-radius: 6px;
-    }
-    .pill-tokyo-ochre {
-        background: rgba(217, 168, 108, 0.15);
-        color: #d9a86c;
-        padding: 3px 8px;
-        border-radius: 6px;
-    }
+.bento-card {
+    background: #0e0e12;
+    border: none !important;
+    border-radius: 16px;
+    padding: 1.2rem 1.3rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.bento-card:hover {
+    transform: translateY(-2px);
+    background: #14141a;
+}
+.bento-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.bento-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #71717a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.bento-value {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    font-feature-settings: "tnum";
+}
+.bento-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    font-weight: 600;
+}
 
-    /* Minimalist Insight Banner */
-    .bento-insight-banner {
-        background: #0e0e12;
-        border: none !important;
-        border-radius: 14px;
-        padding: 0.9rem 1.3rem;
-        margin-bottom: 1.4rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    }
-    .insight-indicator {
-        width: 3px;
-        height: 24px;
-        background: #d48ba1;
-        border-radius: 2px;
-        flex-shrink: 0;
-    }
+.pill-tokyo-mint {
+    background: rgba(104, 182, 158, 0.15);
+    color: #68b69e;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.pill-tokyo-pink {
+    background: rgba(212, 139, 161, 0.15);
+    color: #d48ba1;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.pill-tokyo-crimson {
+    background: rgba(212, 106, 106, 0.15);
+    color: #d46a6a;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.pill-tokyo-purple {
+    background: rgba(155, 134, 189, 0.15);
+    color: #9b86bd;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.pill-tokyo-ochre {
+    background: rgba(217, 168, 108, 0.15);
+    color: #d9a86c;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
 
-    /* Borderless Tab Controls */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 4px;
-        background: #09090c;
-        padding: 4px;
-        border-radius: 12px;
-        border: none !important;
-    }
-    .stTabs [data-baseweb="tab"] {
-        height: 38px;
-        border-radius: 8px;
-        color: #71717a;
-        font-weight: 600;
-        font-size: 0.82rem;
-        padding: 0 14px;
-        border: none !important;
-        background: transparent;
-        transition: all 0.15s ease;
-    }
-    .stTabs [aria-selected="true"] {
-        background: #181820 !important;
-        border: none !important;
-        color: #ffffff !important;
-    }
+.bento-insight-banner {
+    background: #0e0e12;
+    border: none !important;
+    border-radius: 14px;
+    padding: 0.9rem 1.3rem;
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+.insight-indicator {
+    width: 3px;
+    height: 24px;
+    background: #d48ba1;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
 
-    /* Multiselect Tag Chips */
-    span[data-baseweb="tag"],
-    div[data-baseweb="tag"],
-    [data-baseweb="tag"] {
-        background-color: #27272e !important;
-        border: none !important;
-        border-radius: 6px !important;
-        padding: 2px 6px !important;
-        color: #ffffff !important;
-    }
-    span[data-baseweb="tag"] span,
-    div[data-baseweb="tag"] span,
-    [data-baseweb="tag"] * {
-        color: #ffffff !important;
-        font-weight: 500 !important;
-        font-size: 0.78rem !important;
-        background-color: transparent !important;
-    }
-    span[data-baseweb="tag"] svg,
-    div[data-baseweb="tag"] svg {
-        fill: #a1a1aa !important;
-        stroke: #a1a1aa !important;
-    }
+.stTabs [data-baseweb="tab-list"] {
+    gap: 4px;
+    background: #09090c;
+    padding: 4px;
+    border-radius: 12px;
+    border: none !important;
+}
+.stTabs [data-baseweb="tab"] {
+    height: 38px;
+    border-radius: 8px;
+    color: #71717a;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0 14px;
+    border: none !important;
+    background: transparent;
+    transition: all 0.15s ease;
+}
+.stTabs [aria-selected="true"] {
+    background: #181820 !important;
+    border: none !important;
+    color: #ffffff !important;
+}
 
-    /* Action & Download Buttons */
-    div.stDownloadButton > button,
-    div.stButton > button,
-    button[data-testid="baseButton-secondary"],
-    button[data-testid="baseButton-primary"] {
-        background-color: #141419 !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 0.6rem 1.2rem !important;
-        font-weight: 600 !important;
-        font-size: 0.84rem !important;
-        letter-spacing: -0.01em !important;
-        transition: all 0.2s ease !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 8px !important;
-    }
-    div.stDownloadButton > button:hover,
-    div.stButton > button:hover,
-    button[data-testid="baseButton-secondary"]:hover,
-    button[data-testid="baseButton-primary"]:hover {
-        background-color: #22222b !important;
-        color: #ffffff !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
-    }
+span[data-baseweb="tag"],
+div[data-baseweb="tag"],
+[data-baseweb="tag"] {
+    background-color: #27272e !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    color: #ffffff !important;
+}
+span[data-baseweb="tag"] span,
+div[data-baseweb="tag"] span,
+[data-baseweb="tag"] * {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    font-size: 0.78rem !important;
+    background-color: transparent !important;
+}
+span[data-baseweb="tag"] svg,
+div[data-baseweb="tag"] svg {
+    fill: #a1a1aa !important;
+    stroke: #a1a1aa !important;
+}
 
-    /* Analyst Profile Card (Sidebar) */
-    .profile-card {
-        background: #111116;
-        border: none !important;
-        border-radius: 14px;
-        padding: 1.2rem;
-        margin-top: 1.5rem;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-    }
-    .profile-name {
-        font-weight: 800;
-        color: #ffffff;
-        font-size: 0.95rem;
-        margin-bottom: 2px;
-    }
-    .profile-role {
-        font-size: 0.74rem;
-        color: #d48ba1;
-        font-weight: 600;
-        margin-bottom: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-    }
-    .profile-tag {
-        display: inline-block;
-        background: #1c1c24;
-        border: none !important;
-        border-radius: 6px;
-        padding: 3px 8px;
-        font-size: 0.68rem;
-        color: #cbd5e1;
-        margin-right: 4px;
-        margin-bottom: 4px;
-    }
+div.stDownloadButton > button,
+div.stButton > button,
+button[data-testid="baseButton-secondary"],
+button[data-testid="baseButton-primary"] {
+    background-color: #141419 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 0.6rem 1.2rem !important;
+    font-weight: 600 !important;
+    font-size: 0.84rem !important;
+    letter-spacing: -0.01em !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+div.stDownloadButton > button:hover,
+div.stButton > button:hover,
+button[data-testid="baseButton-secondary"]:hover,
+button[data-testid="baseButton-primary"]:hover {
+    background-color: #22222b !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+}
 
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #000000;
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #27272a;
-        border-radius: 4px;
-    }
+.profile-card {
+    background: #111116;
+    border: none !important;
+    border-radius: 14px;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+.profile-name {
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+.profile-role {
+    font-size: 0.74rem;
+    color: #d48ba1;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.profile-tag {
+    display: inline-block;
+    background: #1c1c24;
+    border: none !important;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 0.68rem;
+    color: #cbd5e1;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 4px;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -436,25 +421,20 @@ def load_global_superstore():
         try:
             df = pd.read_csv(url)
         except Exception:
-            # Fallback sample dataset if offline
             df = pd.DataFrame()
 
-    # Clean column headers
     df.columns = [c.strip() for c in df.columns]
 
-    # Convert Date columns (as in Colab cleaning step)
     date_cols = [c for c in df.columns if 'date' in c.lower()]
     for c in date_cols:
         df[c] = pd.to_datetime(df[c], errors='coerce')
 
-    # Standardize column naming
     rename_map = {}
     for col in df.columns:
         clean = col.lower().replace(" ", "_").replace("-", "_")
         rename_map[col] = clean
     df = df.rename(columns=rename_map)
 
-    # Feature Engineering exactly matching Colab Notebook
     if 'order_date' in df.columns and 'ship_date' in df.columns:
         df['shipping_days'] = (df['ship_date'] - df['order_date']).dt.days
         df['order_year'] = df['order_date'].dt.year
@@ -477,7 +457,6 @@ def load_global_superstore():
     if 'shipping_cost' in df.columns and 'sales' in df.columns:
         df['shipping_cost_ratio'] = np.where(df['sales'] != 0, (df['shipping_cost'] / df['sales']) * 100, 0)
 
-    # Strip string columns
     str_cols = df.select_dtypes(include='object').columns
     df[str_cols] = df[str_cols].apply(lambda x: x.str.strip() if hasattr(x, 'str') else x)
 
@@ -515,7 +494,6 @@ with st.sidebar:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Market Hierarchy
     st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#a1a1aa;'>Global Markets</span>", unsafe_allow_html=True)
     all_markets = sorted(df_raw['market'].dropna().unique().tolist()) if 'market' in df_raw.columns else []
     selected_markets = st.multiselect("Markets", options=all_markets, default=all_markets)
@@ -529,7 +507,6 @@ with st.sidebar:
     all_segments = sorted(df_raw['segment'].dropna().unique().tolist()) if 'segment' in df_raw.columns else []
     selected_segments = st.multiselect("Customer Segments", options=all_segments, default=all_segments)
 
-    # Loss / Profit Filter
     profitability_filter = st.selectbox("Profitability Focus", ["All Transactions", "Profit Only", "Loss Only (Leakage)"], index=0)
 
     # Analyst Profile Card
@@ -637,7 +614,7 @@ if filtered_df.empty:
     st.stop()
 
 # ==============================================================================
-# GLOBAL BENTO KPI CARDS (6 METRICS)
+# GLOBAL BENTO KPI CARDS (USING ST.COLUMNS TO GUARANTEE FLAWLESS RENDERING)
 # ==============================================================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -647,10 +624,12 @@ total_orders = filtered_df['order_id'].nunique() if 'order_id' in filtered_df.co
 total_customers = filtered_df['customer_id'].nunique() if 'customer_id' in filtered_df.columns else 0
 total_countries = filtered_df['country'].nunique() if 'country' in filtered_df.columns else 0
 
-margin_pill_class = "pill-tokyo-mint" if profit_margin >= 10 else ("pill-tokyo-crimson" if profit_margin < 0 else "pill-tokyo-ochre")
+margin_pill = "pill-tokyo-mint" if profit_margin >= 10 else ("pill-tokyo-crimson" if profit_margin < 0 else "pill-tokyo-ochre")
 
-st.markdown(f"""
-<div class="bento-kpi-container">
+k1, k2, k3, k4, k5, k6 = st.columns(6)
+
+with k1:
+    st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Gross Revenue</span>
@@ -661,7 +640,10 @@ st.markdown(f"""
             <span class="pill-tokyo-pink">Global Turnover</span>
         </div>
     </div>
+    """, unsafe_allow_html=True)
 
+with k2:
+    st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Net Profit</span>
@@ -669,10 +651,13 @@ st.markdown(f"""
         </div>
         <div class="bento-value">${total_profit:,.0f}</div>
         <div class="bento-footer">
-            <span class="{margin_pill_class}">Margin {profit_margin:.1f}%</span>
+            <span class="{margin_pill}">Margin {profit_margin:.1f}%</span>
         </div>
     </div>
+    """, unsafe_allow_html=True)
 
+with k3:
+    st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Incurred Losses</span>
@@ -683,7 +668,10 @@ st.markdown(f"""
             <span class="pill-tokyo-crimson">Leakage Deficit</span>
         </div>
     </div>
+    """, unsafe_allow_html=True)
 
+with k4:
+    st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Orders</span>
@@ -694,7 +682,10 @@ st.markdown(f"""
             <span class="pill-tokyo-purple">Transactions</span>
         </div>
     </div>
+    """, unsafe_allow_html=True)
 
+with k5:
+    st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Client Base</span>
@@ -705,7 +696,10 @@ st.markdown(f"""
             <span class="pill-tokyo-mint">Active Accounts</span>
         </div>
     </div>
+    """, unsafe_allow_html=True)
 
+with k6:
+    st.markdown(f"""
     <div class="bento-card">
         <div class="bento-card-top">
             <span class="bento-label">Presence</span>
@@ -713,11 +707,12 @@ st.markdown(f"""
         </div>
         <div class="bento-value">{total_countries}</div>
         <div class="bento-footer">
-            <span class="pill-tokyo-ochre">Countries Covered</span>
+            <span class="pill-tokyo-ochre">Countries</span>
         </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 # ==============================================================================
 # MINIMALIST INSIGHT BANNER
@@ -989,7 +984,6 @@ with tab_discount:
         apply_bento_theme(fig_ds, height=340)
         st.plotly_chart(fig_ds, use_container_width=True)
 
-    # Highlight Case Study from Notebook
     st.markdown("""
     <div style="background:#0e0e12; border-radius:14px; padding:16px; margin-top:10px;">
         <div style="font-weight:800; font-size:0.85rem; color:#d48ba1; text-transform:uppercase; letter-spacing:0.04em;">Colab Discovery: Problem SKU Case Study</div>
@@ -1053,7 +1047,6 @@ with tab_shipping:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Seasonal Monthly Heatmap
     if 'order_month' in filtered_df.columns and 'order_year' in filtered_df.columns:
         st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:0.5rem;'>Global Monthly Seasonality Matrix (Sales $)</p>", unsafe_allow_html=True)
         month_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -1173,7 +1166,6 @@ with tab_pareto:
     st.markdown("<p style='font-size:1.05rem; font-weight:800; color:#ffffff; margin-bottom:0.2rem;'>Pareto Analysis (80/20 Rule): Profit & Loss Concentration</p>", unsafe_allow_html=True)
     st.markdown("<p style='font-size:0.8rem; color:#71717a; margin-bottom:1.2rem;'>Mathematical demonstration of cumulative profit generation and cumulative loss causation.</p>", unsafe_allow_html=True)
 
-    # 1. Pareto Profit Curve
     prod_profit = filtered_df.groupby('product_name')['profit'].sum().reset_index()
     prod_profit_pos = prod_profit[prod_profit['profit'] > 0].sort_values('profit', ascending=False).reset_index(drop=True)
     prod_profit_pos['cum_profit'] = prod_profit_pos['profit'].cumsum()
@@ -1181,7 +1173,6 @@ with tab_pareto:
     prod_profit_pos['cum_profit_pct'] = (prod_profit_pos['cum_profit'] / total_pos_prof) * 100
     prod_profit_pos['sku_rank_pct'] = ((prod_profit_pos.index + 1) / len(prod_profit_pos)) * 100
 
-    # 2. Pareto Loss Curve
     prod_loss = prod_profit[prod_profit['profit'] < 0].copy()
     prod_loss['abs_loss'] = prod_loss['profit'].abs()
     prod_loss = prod_loss.sort_values('abs_loss', ascending=False).reset_index(drop=True)
