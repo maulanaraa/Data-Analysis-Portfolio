@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Pure Matte Black (Borderless), Concept 2 Hero Bento
+# Custom High-End CSS: Satoshi Font, Pure Matte Black (Borderless), Refined Minimalist Cards
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -81,7 +81,7 @@ st.markdown("""
     }
 
     /* =========================================
-       CONCEPT 2: ASYMMETRIC HERO BENTO
+       BORDERLESS MATTE CARDS & CONTAINERS
        ========================================= */
 
     /* Top Navigation Header */
@@ -130,130 +130,82 @@ st.markdown("""
         box-shadow: 0 0 6px #68b69e;
     }
 
-    /* Asymmetric Bento Container */
-    .hero-bento-grid {
+    /* Clean 5-Column Bento KPI Cards */
+    .bento-kpi-container {
         display: grid;
-        grid-template-columns: 1.8fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(5, 1fr);
         gap: 1rem;
         margin-bottom: 1.4rem;
     }
-
-    /* Left Hero Card */
-    .hero-card {
+    .bento-card {
         background: #0e0e12;
         border: none !important;
-        border-radius: 18px;
-        padding: 1.4rem 1.6rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-        transition: all 0.2s ease;
-    }
-    .hero-card:hover {
-        background: #13131a;
-        transform: translateY(-2px);
-    }
-    .hero-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
-    .hero-tag {
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: #a1a1aa;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-    }
-    .hero-split {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 1.5rem;
-        align-items: flex-end;
-    }
-    .hero-num-big {
-        font-size: 2.15rem;
-        font-weight: 800;
-        color: #ffffff;
-        letter-spacing: -0.03em;
-        line-height: 1;
-        margin-top: 4px;
-        margin-bottom: 6px;
-    }
-    .hero-num-sub {
-        font-size: 1.65rem;
-        font-weight: 800;
-        color: #68b69e;
-        letter-spacing: -0.02em;
-        line-height: 1;
-        margin-top: 4px;
-        margin-bottom: 6px;
-    }
-
-    /* Secondary Compact Bento Cards */
-    .sub-card {
-        background: #0e0e12;
-        border: none !important;
-        border-radius: 18px;
+        border-radius: 16px;
         padding: 1.3rem 1.4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
         transition: all 0.2s ease;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
-    .sub-card:hover {
-        background: #13131a;
+    .bento-card:hover {
         transform: translateY(-2px);
+        background: #14141a;
     }
-    .sub-top {
+
+    .bento-card-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.6rem;
     }
-    .sub-label {
-        font-size: 0.72rem;
+    .bento-label {
+        font-size: 0.74rem;
         font-weight: 700;
         color: #71717a;
         text-transform: uppercase;
         letter-spacing: 0.06em;
     }
-    .sub-val {
-        font-size: 1.75rem;
+    .svg-icon {
+        display: flex;
+        align-items: center;
+    }
+    .bento-value {
+        font-size: 1.8rem;
         font-weight: 800;
         color: #ffffff;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.03em;
         line-height: 1.1;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.45rem;
+        font-feature-settings: "tnum";
     }
-
+    .bento-footer {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.76rem;
+        font-weight: 600;
+    }
     .pill-tokyo-mint {
         background: rgba(104, 182, 158, 0.15);
         color: #68b69e;
         padding: 3px 8px;
         border-radius: 6px;
-        font-size: 0.74rem;
-        font-weight: 600;
     }
     .pill-tokyo-pink {
         background: rgba(212, 139, 161, 0.15);
         color: #d48ba1;
         padding: 3px 8px;
         border-radius: 6px;
-        font-size: 0.74rem;
-        font-weight: 600;
+    }
+    .pill-tokyo-crimson {
+        background: rgba(212, 106, 106, 0.15);
+        color: #d46a6a;
+        padding: 3px 8px;
+        border-radius: 6px;
     }
     .pill-tokyo-purple {
         background: rgba(155, 134, 189, 0.15);
         color: #9b86bd;
         padding: 3px 8px;
         border-radius: 6px;
-        font-size: 0.74rem;
-        font-weight: 600;
     }
 
     /* Minimalist Insight Banner */
@@ -664,7 +616,7 @@ if filtered_df.empty:
     st.stop()
 
 # ==========================================
-# CONCEPT 2: ASYMMETRIC HERO BENTO GRID
+# 5 BENTO KPI CARDS (CLEAN & BALANCED)
 # ==========================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -673,63 +625,68 @@ total_orders = filtered_df['order_id'].nunique()
 total_customers = filtered_df['customer_id'].nunique()
 avg_order_value = (total_sales / total_orders) if total_orders > 0 else 0
 
+margin_pill_class = "pill-tokyo-mint" if profit_margin >= 12 else ("pill-tokyo-crimson" if profit_margin < 0 else "pill-tokyo-pink")
+
 st.markdown(f"""
-<div class="hero-bento-grid">
-    <!-- 1. Left Hero Financial Command Card (Wide) -->
-    <div class="hero-card">
-        <div class="hero-top">
-            <span class="hero-tag">Financial Trajectory & Bottom-Line</span>
-            <div style="display:flex; align-items:center; gap:8px;">
-                <span class="pill-tokyo-mint">Operating Margin {profit_margin:.1f}%</span>
-            </div>
+<div class="bento-kpi-container">
+    <div class="bento-card">
+        <div class="bento-card-top">
+            <span class="bento-label">Gross Revenue</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d48ba1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </span>
         </div>
-        <div class="hero-split">
-            <div>
-                <div style="font-size:0.72rem; color:#71717a; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;">Gross Revenue</div>
-                <div class="hero-num-big">${total_sales:,.0f}</div>
-                <div style="font-size:0.74rem; color:#94a3b8; font-weight:500;">Total Commercial Inflow</div>
-            </div>
-            <div>
-                <div style="font-size:0.72rem; color:#68b69e; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;">Net Profit</div>
-                <div class="hero-num-sub">${total_profit:,.0f}</div>
-                <div style="font-size:0.74rem; color:#68b69e; font-weight:500;">Net Contribution</div>
-            </div>
+        <div class="bento-value">${total_sales:,.0f}</div>
+        <div class="bento-footer">
+            <span class="pill-tokyo-pink">Total Sales</span>
         </div>
     </div>
-
-    <!-- 2. Total Orders -->
-    <div class="sub-card">
-        <div class="sub-top">
-            <span class="sub-label">Orders</span>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9b86bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+    <div class="bento-card">
+        <div class="bento-card-top">
+            <span class="bento-label">Net Profit</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </span>
         </div>
-        <div>
-            <div class="sub-val">{total_orders:,}</div>
+        <div class="bento-value">${total_profit:,.0f}</div>
+        <div class="bento-footer">
+            <span class="{margin_pill_class}">Margin {profit_margin:.1f}%</span>
+        </div>
+    </div>
+    <div class="bento-card">
+        <div class="bento-card-top">
+            <span class="bento-label">Total Orders</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </span>
+        </div>
+        <div class="bento-value">{total_orders:,}</div>
+        <div class="bento-footer">
             <span class="pill-tokyo-purple">Unique Orders</span>
         </div>
     </div>
-
-    <!-- 3. Active Clients -->
-    <div class="sub-card">
-        <div class="sub-top">
-            <span class="sub-label">Clients</span>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+    <div class="bento-card">
+        <div class="bento-card-top">
+            <span class="bento-label">Active Clients</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#68b69e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </span>
         </div>
-        <div>
-            <div class="sub-val">{total_customers:,}</div>
-            <span class="pill-tokyo-mint">Active Base</span>
+        <div class="bento-value">{total_customers:,}</div>
+        <div class="bento-footer">
+            <span class="pill-tokyo-mint">Client Base</span>
         </div>
     </div>
-
-    <!-- 4. Avg Order Value -->
-    <div class="sub-card">
-        <div class="sub-top">
-            <span class="sub-label">Basket Size</span>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d48ba1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+    <div class="bento-card">
+        <div class="bento-card-top">
+            <span class="bento-label">Avg Order Value</span>
+            <span class="svg-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9b86bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+            </span>
         </div>
-        <div>
-            <div class="sub-val">${avg_order_value:,.1f}</div>
-            <span class="pill-tokyo-pink">AOV / Ticket</span>
+        <div class="bento-value">${avg_order_value:,.1f}</div>
+        <div class="bento-footer">
+            <span class="pill-tokyo-pink">AOV / Basket</span>
         </div>
     </div>
 </div>
