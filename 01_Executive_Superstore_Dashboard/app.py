@@ -8,16 +8,16 @@ import io
 import os
 
 # ==========================================
-# PAGE CONFIGURATION & MONOCHROME BLACK THEME
+# PAGE CONFIGURATION & GLASSMORPHISM THEME
 # ==========================================
 st.set_page_config(
-    page_title="Superstore Executive Hub — Commercial Intelligence",
+    page_title="Superstore Executive Hub — Frosted Glass Edition",
     page_icon="■",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End CSS: Satoshi Font, Luxury Monochrome UI & Soft Accents
+# Custom High-End CSS: Satoshi Font, Frosted Glassmorphism, Ambient Mesh Lighting
 st.markdown("""
 <style>
     @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
@@ -27,8 +27,14 @@ st.markdown("""
         font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
+    /* Background with Subtle Multi-layered Ambient Light Refraction for Glassmorphism */
     .stApp {
-        background-color: #000000 !important;
+        background-color: #050608 !important;
+        background-image: 
+            radial-gradient(circle at 12% 15%, rgba(126, 158, 184, 0.08) 0%, transparent 45%),
+            radial-gradient(circle at 88% 25%, rgba(142, 186, 163, 0.07) 0%, transparent 40%),
+            radial-gradient(circle at 50% 85%, rgba(159, 168, 218, 0.05) 0%, transparent 50%) !important;
+        background-attachment: fixed !important;
         color: #ffffff;
     }
 
@@ -40,10 +46,12 @@ st.markdown("""
         max-width: 98% !important;
     }
 
-    /* Standard Docked Sidebar */
+    /* Frosted Glass Sidebar */
     section[data-testid="stSidebar"] {
-        background-color: #070709 !important;
-        border-right: none !important;
+        background: rgba(10, 11, 16, 0.7) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
     }
 
     /* Sidebar Collapse / Expand Arrow Button */
@@ -79,108 +87,24 @@ st.markdown("""
     }
 
     /* =========================================
-       FIXED MULTISELECT TAG CHIPS & BUTTONS
+       GLASSMORPHISM CONTAINERS & CARDS
        ========================================= */
-    
-    span[data-baseweb="tag"],
-    div[data-baseweb="tag"],
-    [data-baseweb="tag"] {
-        background-color: #27272e !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        border-radius: 6px !important;
-        padding: 2px 6px !important;
-        color: #ffffff !important;
-    }
-    span[data-baseweb="tag"] span,
-    div[data-baseweb="tag"] span,
-    span[data-baseweb="tag"] div,
-    div[data-baseweb="tag"] div,
-    [data-baseweb="tag"] * {
-        color: #ffffff !important;
-        font-weight: 500 !important;
-        font-size: 0.78rem !important;
-        background-color: transparent !important;
-    }
-    span[data-baseweb="tag"] svg,
-    div[data-baseweb="tag"] svg,
-    [data-baseweb="tag"] svg {
-        fill: #a1a1aa !important;
-        stroke: #a1a1aa !important;
-    }
-    span[data-baseweb="tag"] svg:hover,
-    div[data-baseweb="tag"] svg:hover {
-        fill: #ffffff !important;
-        stroke: #ffffff !important;
-    }
 
-    div[data-baseweb="select"] > div {
-        background-color: #0e0e12 !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 10px !important;
-        color: #ffffff !important;
-    }
-    div[data-baseweb="select"] > div:hover {
-        border-color: rgba(255, 255, 255, 0.2) !important;
-    }
-    div[data-baseweb="select"] > div:focus-within {
-        border-color: rgba(255, 255, 255, 0.4) !important;
-    }
-
-    /* Action & Download Buttons */
-    div.stDownloadButton > button,
-    div.stButton > button,
-    button[data-testid="baseButton-secondary"],
-    button[data-testid="baseButton-primary"] {
-        background-color: #141419 !important;
-        color: #ffffff !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        border-radius: 12px !important;
-        padding: 0.6rem 1.2rem !important;
-        font-weight: 600 !important;
-        font-size: 0.84rem !important;
-        letter-spacing: -0.01em !important;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 8px !important;
-    }
-
-    div.stDownloadButton > button:hover,
-    div.stButton > button:hover,
-    button[data-testid="baseButton-secondary"]:hover,
-    button[data-testid="baseButton-primary"]:hover {
-        background-color: #22222b !important;
-        border-color: rgba(255, 255, 255, 0.3) !important;
-        color: #ffffff !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
-    }
-
-    div.stDownloadButton > button:active,
-    div.stButton > button:active {
-        transform: scale(0.98) !important;
-    }
-
-    div[data-baseweb="input"],
-    div[data-baseweb="base-input"] {
-        background-color: #0e0e12 !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 10px !important;
-        color: #ffffff !important;
-    }
-
-    /* Top Executive Navigation Header */
+    /* Top Navigation Frosted Glass Header */
     .bento-nav-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.3rem 1.8rem;
-        background: #0e0e12;
-        border-radius: 16px;
+        padding: 1.4rem 1.8rem;
+        background: rgba(18, 20, 28, 0.55);
+        backdrop-filter: blur(24px) saturate(190%);
+        -webkit-backdrop-filter: blur(24px) saturate(190%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
         margin-bottom: 1.4rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        box-shadow: 
+            inset 0 1px 1px rgba(255, 255, 255, 0.1),
+            0 12px 36px rgba(0, 0, 0, 0.4);
     }
     .brand-title {
         font-size: 1.55rem;
@@ -191,7 +115,7 @@ st.markdown("""
     }
     .brand-subtitle {
         font-size: 0.82rem;
-        color: #71717a;
+        color: #94a3b8;
         font-weight: 500;
         margin-top: 3px;
         letter-spacing: 0.01em;
@@ -200,10 +124,13 @@ st.markdown("""
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: #18181b;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         color: #e4e4e7;
         padding: 6px 14px;
-        border-radius: 8px;
+        border-radius: 10px;
         font-size: 0.76rem;
         font-weight: 600;
     }
@@ -212,10 +139,10 @@ st.markdown("""
         height: 6px;
         background-color: #8ebaa3;
         border-radius: 50%;
-        box-shadow: 0 0 6px rgba(142, 186, 163, 0.6);
+        box-shadow: 0 0 8px rgba(142, 186, 163, 0.8);
     }
 
-    /* Bento Grid KPI Cards */
+    /* Frosted Glass KPI Cards */
     .bento-kpi-container {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -223,15 +150,24 @@ st.markdown("""
         margin-bottom: 1.4rem;
     }
     .bento-card {
-        background: #0e0e12;
-        border-radius: 16px;
+        background: rgba(18, 20, 28, 0.45);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 18px;
         padding: 1.25rem 1.4rem;
-        transition: all 0.2s ease;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 8px 24px rgba(0, 0, 0, 0.35);
     }
     .bento-card:hover {
-        transform: translateY(-2px);
-        background: #141419;
+        transform: translateY(-3px);
+        background: rgba(26, 29, 40, 0.6);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            0 14px 32px rgba(0, 0, 0, 0.5);
     }
 
     .bento-card-top {
@@ -243,12 +179,11 @@ st.markdown("""
     .bento-label {
         font-size: 0.74rem;
         font-weight: 700;
-        color: #71717a;
+        color: #94a3b8;
         text-transform: uppercase;
         letter-spacing: 0.06em;
     }
     .svg-icon {
-        color: #a1a1aa;
         display: flex;
         align-items: center;
     }
@@ -269,34 +204,42 @@ st.markdown("""
         font-weight: 600;
     }
     .pill-soft-green {
-        background: rgba(142, 186, 163, 0.15);
+        background: rgba(142, 186, 163, 0.12);
+        border: 1px solid rgba(142, 186, 163, 0.2);
         color: #8ebaa3;
         padding: 3px 8px;
         border-radius: 6px;
     }
     .pill-soft-red {
-        background: rgba(217, 130, 116, 0.15);
+        background: rgba(217, 130, 116, 0.12);
+        border: 1px solid rgba(217, 130, 116, 0.2);
         color: #d98274;
         padding: 3px 8px;
         border-radius: 6px;
     }
     .pill-soft-blue {
-        background: rgba(126, 158, 184, 0.15);
+        background: rgba(126, 158, 184, 0.12);
+        border: 1px solid rgba(126, 158, 184, 0.2);
         color: #7e9eb8;
         padding: 3px 8px;
         border-radius: 6px;
     }
 
-    /* Minimalist Insight Banner */
+    /* Frosted Glass Insight Banner */
     .bento-insight-banner {
-        background: #0e0e12;
+        background: rgba(18, 20, 28, 0.45);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         border-radius: 14px;
         padding: 0.9rem 1.3rem;
         margin-bottom: 1.4rem;
         display: flex;
         align-items: center;
         gap: 12px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 8px 24px rgba(0, 0, 0, 0.25);
     }
     .insight-indicator {
         width: 3px;
@@ -304,41 +247,121 @@ st.markdown("""
         background: #7e9eb8;
         border-radius: 2px;
         flex-shrink: 0;
+        box-shadow: 0 0 8px rgba(126, 158, 184, 0.6);
     }
 
-    /* Tab Controls */
+    /* Frosted Glass Tabs */
     .stTabs [data-baseweb="tab-list"] {
         gap: 6px;
-        background: #0a0a0d;
+        background: rgba(15, 17, 24, 0.5);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
         padding: 4px;
-        border-radius: 12px;
+        border-radius: 14px;
     }
     .stTabs [data-baseweb="tab"] {
         height: 38px;
-        border-radius: 8px;
-        color: #71717a;
+        border-radius: 9px;
+        color: #94a3b8;
         font-weight: 600;
         font-size: 0.84rem;
         padding: 0 16px;
         border: none !important;
         background: transparent;
-        transition: all 0.15s ease;
+        transition: all 0.2s ease;
     }
     .stTabs [aria-selected="true"] {
-        background: #181820 !important;
+        background: rgba(255, 255, 255, 0.09) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Frosted Multiselect Tag Chips */
+    span[data-baseweb="tag"],
+    div[data-baseweb="tag"],
+    [data-baseweb="tag"] {
+        background-color: rgba(39, 42, 54, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 6px !important;
+        padding: 2px 6px !important;
+        color: #ffffff !important;
+    }
+    span[data-baseweb="tag"] span,
+    div[data-baseweb="tag"] span,
+    [data-baseweb="tag"] * {
+        color: #ffffff !important;
+        font-weight: 500 !important;
+        font-size: 0.78rem !important;
+        background-color: transparent !important;
+    }
+    span[data-baseweb="tag"] svg,
+    div[data-baseweb="tag"] svg {
+        fill: #a1a1aa !important;
+        stroke: #a1a1aa !important;
+    }
+
+    /* Frosted Action & Download Buttons */
+    div.stDownloadButton > button,
+    div.stButton > button,
+    button[data-testid="baseButton-secondary"],
+    button[data-testid="baseButton-primary"] {
+        background: rgba(24, 27, 38, 0.6) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 0.6rem 1.2rem !important;
+        font-weight: 600 !important;
+        font-size: 0.84rem !important;
+        letter-spacing: -0.01em !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 6px 18px rgba(0, 0, 0, 0.35) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+    div.stDownloadButton > button:hover,
+    div.stButton > button:hover,
+    button[data-testid="baseButton-secondary"]:hover,
+    button[data-testid="baseButton-primary"]:hover {
+        background: rgba(36, 41, 58, 0.8) !important;
+        border-color: rgba(255, 255, 255, 0.25) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            0 10px 24px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Frosted Input Fields */
+    div[data-baseweb="input"],
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="base-input"] {
+        background-color: rgba(18, 20, 28, 0.5) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 10px !important;
         color: #ffffff !important;
     }
 
-    /* Clean Scrollbar */
+    /* Scrollbar */
     ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
     }
     ::-webkit-scrollbar-track {
-        background: #000000;
+        background: #050608;
     }
     ::-webkit-scrollbar-thumb {
-        background: #27272a;
+        background: rgba(255, 255, 255, 0.12);
         border-radius: 4px;
     }
 </style>
@@ -354,25 +377,25 @@ def apply_bento_chart_theme(fig, height=360):
         margin=dict(l=15, r=15, t=35, b=15),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Satoshi, sans-serif", color="#8e8e93", size=11),
+        font=dict(family="Satoshi, sans-serif", color="#94a3b8", size=11),
         hoverlabel=dict(
-            bgcolor="#141419",
+            bgcolor="rgba(18, 20, 28, 0.9)",
             font_size=12,
             font_family="Satoshi",
-            bordercolor="rgba(255,255,255,0.08)"
+            bordercolor="rgba(255,255,255,0.12)"
         ),
         xaxis=dict(
             showgrid=False,
             zeroline=False,
-            color="#52525b",
-            tickfont=dict(color="#8e8e93", size=10)
+            color="#475569",
+            tickfont=dict(color="#94a3b8", size=10)
         ),
         yaxis=dict(
             showgrid=True,
             gridcolor="rgba(255, 255, 255, 0.03)",
             zeroline=False,
-            color="#52525b",
-            tickfont=dict(color="#8e8e93", size=10)
+            color="#475569",
+            tickfont=dict(color="#94a3b8", size=10)
         ),
         legend=dict(
             orientation="h",
@@ -380,7 +403,7 @@ def apply_bento_chart_theme(fig, height=360):
             y=1.02,
             xanchor="right",
             x=1,
-            font=dict(color="#a1a1aa", size=10),
+            font=dict(color="#cbd5e1", size=10),
             bgcolor="rgba(0,0,0,0)"
         )
     )
@@ -434,7 +457,7 @@ def load_data():
 df_raw = load_data()
 
 # ==========================================
-# SIDEBAR FILTERS
+# SIDEBAR FILTERS (FROSTED GLASS DOCKED)
 # ==========================================
 with st.sidebar:
     st.markdown("""
@@ -447,7 +470,7 @@ with st.sidebar:
     min_date = df_raw['order_date'].min().date()
     max_date = df_raw['order_date'].max().date()
     
-    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#a1a1aa;'>Date Range</span>", unsafe_allow_html=True)
+    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#cbd5e1;'>Date Range</span>", unsafe_allow_html=True)
     date_selection = st.date_input(
         "Date Range",
         value=(min_date, max_date),
@@ -463,7 +486,7 @@ with st.sidebar:
         
     st.markdown("<br>", unsafe_allow_html=True)
     
-    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#a1a1aa;'>Market Hierarchy</span>", unsafe_allow_html=True)
+    st.markdown("<span style='font-size:0.8rem; font-weight:600; color:#cbd5e1;'>Market Hierarchy</span>", unsafe_allow_html=True)
     all_regions = sorted(df_raw['region'].dropna().unique().tolist())
     selected_regions = st.multiselect(
         "Regions",
@@ -512,7 +535,7 @@ if selected_subcats:
     filtered_df = filtered_df[filtered_df['sub_category'].isin(selected_subcats)]
 
 # ==========================================
-# TOP NAVIGATION HEADER
+# TOP NAVIGATION HEADER (FROSTED GLASS)
 # ==========================================
 st.markdown(f"""
 <div class="bento-nav-card">
@@ -531,7 +554,7 @@ if filtered_df.empty:
     st.stop()
 
 # ==========================================
-# BENTO KPI CARDS ROW
+# BENTO KPI CARDS ROW (FROSTED GLASS)
 # ==========================================
 total_sales = filtered_df['sales'].sum()
 total_profit = filtered_df['profit'].sum()
@@ -608,7 +631,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# MINIMALIST INSIGHT BANNER
+# FROSTED INSIGHT BANNER
 # ==========================================
 best_cat = filtered_df.groupby('category')['sales'].sum().idxmax()
 best_cat_sales = filtered_df.groupby('category')['sales'].sum().max()
@@ -749,7 +772,7 @@ with tab_overview:
         st.plotly_chart(fig_m, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 2: GEOSPATIAL & REGIONAL (SOFT PALETTE)
+# TAB 2: GEOSPATIAL & REGIONAL
 # ----------------------------------------------------
 with tab_geo:
     us_state_to_code = {
@@ -801,12 +824,12 @@ with tab_geo:
         for _, r in top_states.iterrows():
             margin_color = "#8ebaa3" if r['profit_margin'] >= 10 else ("#d98274" if r['profit_margin'] < 0 else "#d8b384")
             st.markdown(f"""
-            <div style="background: #0e0e12; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px;">
+            <div style="background: rgba(18, 20, 28, 0.45); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 14px; padding: 12px 16px; margin-bottom: 8px;">
                 <div style="display:flex; justify-content:space-between; font-weight:700; color:#ffffff; font-size: 0.9rem;">
                     <span>{r['state']}</span>
                     <span style="color:#7e9eb8;">${r['sales']:,.0f}</span>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#71717a; margin-top:4px;">
+                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#94a3b8; margin-top:4px;">
                     <span>Profit: ${r['profit']:,.0f}</span>
                     <span style="color:{margin_color};">Margin: {r['profit_margin']:.1f}%</span>
                 </div>
@@ -850,7 +873,7 @@ with tab_geo:
         st.plotly_chart(fig_ship, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 3: CUSTOMER RETENTION & RFM (SOFT PALETTE)
+# TAB 3: CUSTOMER RETENTION & RFM
 # ----------------------------------------------------
 with tab_customer:
     ref_date = filtered_df['order_date'].max()
@@ -916,17 +939,17 @@ with tab_customer:
         st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:0.5rem;'>Client Cohort Health</p>", unsafe_allow_html=True)
         st.markdown(f"""
         <div style="display:flex; flex-direction:column; gap:8px;">
-            <div style="background:#0e0e12; border-radius:10px; padding:12px;">
+            <div style="background: rgba(18, 20, 28, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.07); border-radius:12px; padding:12px;">
                 <div style="color:#8ebaa3; font-weight:700; font-size:0.85rem;">Active (&lt;180d): {act} clients</div>
-                <div style="color:#71717a; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% active purchasing base.</div>
+                <div style="color:#94a3b8; font-size:0.75rem;">{(act/len(cust_rfm)*100):.1f}% active purchasing base.</div>
             </div>
-            <div style="background:#0e0e12; border-radius:10px; padding:12px;">
+            <div style="background: rgba(18, 20, 28, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.07); border-radius:12px; padding:12px;">
                 <div style="color:#d8b384; font-weight:700; font-size:0.85rem;">At Risk (180-365d): {risk} clients</div>
-                <div style="color:#71717a; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6-12 months.</div>
+                <div style="color:#94a3b8; font-size:0.75rem;">{(risk/len(cust_rfm)*100):.1f}% inactive for 6-12 months.</div>
             </div>
-            <div style="background:#0e0e12; border-radius:10px; padding:12px;">
+            <div style="background: rgba(18, 20, 28, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.07); border-radius:12px; padding:12px;">
                 <div style="color:#d98274; font-weight:700; font-size:0.85rem;">Lost (&gt;365d): {lost} clients</div>
-                <div style="color:#71717a; font-size:0.75rem;">{(lost/len(cust_rfm)*100):.1f}% churned accounts.</div>
+                <div style="color:#94a3b8; font-size:0.75rem;">{(lost/len(cust_rfm)*100):.1f}% churned accounts.</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -966,7 +989,7 @@ with tab_customer:
         st.plotly_chart(fig_b10, use_container_width=True)
 
 # ----------------------------------------------------
-# TAB 4: PRODUCT & PRICING (SOFT PALETTE)
+# TAB 4: PRODUCT & PRICING
 # ----------------------------------------------------
 with tab_product:
     p1, p2 = st.columns(2)
